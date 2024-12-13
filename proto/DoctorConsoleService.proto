@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package doctor_console;
+
+message Empty {}
+
+message Settings {
+  optional string language = 1;
+  optional string theme = 2;
+  optional bool eye_control_enabled = 3;
+}
+
+message User {
+  bool authenticated = 1;
+  string id = 2;
+  string name = 3;
+}
+
+message Credentials {
+  string username = 1;
+  string password = 2;
+}
+
+service DoctorConsoleService {
+  rpc GetSettings(Empty) returns (Settings);
+  rpc SetSettings(Settings) returns (Empty);
+  rpc GetUser(Empty) returns (User);
+  rpc EyeCalibration(Empty) returns (Empty);
+  rpc Login(Credentials) returns (User);
+  rpc Logout(Empty) returns (Empty);
+}
