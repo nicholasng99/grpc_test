@@ -35,7 +35,7 @@ ApplicationWindow {
         console.timeEnd("getU")
         _user = value
         authenticated.checked = _user.authenticated
-        userId.text = _user.id_string
+        userId.text = _user.idString
         name.text = _user.name
     }
 
