@@ -44,8 +44,6 @@ ApplicationWindow {
     }
 
     ColumnLayout {
-        // anchors.left: parent.left
-        // anchors.right: parent.right
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 10
 
