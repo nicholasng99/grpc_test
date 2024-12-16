@@ -20,7 +20,8 @@
                         "value": "${env:PATH};${command:qt-cpp.kitDirectory}${/}bin"
                     }
                 ]
-            }
+            },
+            "preLaunchTask": "build",
         }
     ]
 }

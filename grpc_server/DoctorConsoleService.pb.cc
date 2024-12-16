@@ -28,7 +28,7 @@ namespace doctor_console {
 
 inline constexpr User::Impl_::Impl_(
     ::_pbi::ConstantInitialized) noexcept
-      : id_(
+      : id_string_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
         name_(
@@ -174,7 +174,7 @@ const ::uint32_t
         ~0u,  // no _split_
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::doctor_console::User, _impl_.authenticated_),
-        PROTOBUF_FIELD_OFFSET(::doctor_console::User, _impl_.id_),
+        PROTOBUF_FIELD_OFFSET(::doctor_console::User, _impl_.id_string_),
         PROTOBUF_FIELD_OFFSET(::doctor_console::User, _impl_.name_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::doctor_console::Credentials, _internal_metadata_),
@@ -207,26 +207,26 @@ const char descriptor_table_protodef_DoctorConsoleService_2eproto[] ABSL_ATTRIBU
     "sole\"\007\n\005Empty\"\206\001\n\010Settings\022\025\n\010language\030\001"
     " \001(\tH\000\210\001\001\022\022\n\005theme\030\002 \001(\tH\001\210\001\001\022 \n\023eye_con"
     "trol_enabled\030\003 \001(\010H\002\210\001\001B\013\n\t_languageB\010\n\006"
-    "_themeB\026\n\024_eye_control_enabled\"7\n\004User\022\025"
-    "\n\rauthenticated\030\001 \001(\010\022\n\n\002id\030\002 \001(\t\022\014\n\004nam"
-    "e\030\003 \001(\t\"1\n\013Credentials\022\020\n\010username\030\001 \001(\t"
-    "\022\020\n\010password\030\002 \001(\t2\202\003\n\024DoctorConsoleServ"
-    "ice\022>\n\013GetSettings\022\025.doctor_console.Empt"
-    "y\032\030.doctor_console.Settings\022>\n\013SetSettin"
-    "gs\022\030.doctor_console.Settings\032\025.doctor_co"
-    "nsole.Empty\0226\n\007GetUser\022\025.doctor_console."
-    "Empty\032\024.doctor_console.User\022>\n\016EyeCalibr"
-    "ation\022\025.doctor_console.Empty\032\025.doctor_co"
-    "nsole.Empty\022:\n\005Login\022\033.doctor_console.Cr"
-    "edentials\032\024.doctor_console.User\0226\n\006Logou"
-    "t\022\025.doctor_console.Empty\032\025.doctor_consol"
-    "e.Emptyb\006proto3"
+    "_themeB\026\n\024_eye_control_enabled\">\n\004User\022\025"
+    "\n\rauthenticated\030\001 \001(\010\022\021\n\tid_string\030\002 \001(\t"
+    "\022\014\n\004name\030\003 \001(\t\"1\n\013Credentials\022\020\n\010usernam"
+    "e\030\001 \001(\t\022\020\n\010password\030\002 \001(\t2\201\003\n\024DoctorCons"
+    "oleService\022>\n\013getSettings\022\025.doctor_conso"
+    "le.Empty\032\030.doctor_console.Settings\022>\n\013se"
+    "tSettings\022\030.doctor_console.Settings\032\025.do"
+    "ctor_console.Empty\0226\n\007getUser\022\025.doctor_c"
+    "onsole.Empty\032\024.doctor_console.User\022>\n\016ey"
+    "eCalibration\022\025.doctor_console.Empty\032\025.do"
+    "ctor_console.Empty\022:\n\005login\022\033.doctor_con"
+    "sole.Credentials\032\024.doctor_console.User\0225"
+    "\n\006logout\022\025.doctor_console.Empty\032\024.doctor"
+    "_console.Userb\006proto3"
 };
 static ::absl::once_flag descriptor_table_DoctorConsoleService_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_DoctorConsoleService_2eproto = {
     false,
     false,
-    695,
+    701,
     descriptor_table_protodef_DoctorConsoleService_2eproto,
     "DoctorConsoleService.proto",
     &descriptor_table_DoctorConsoleService_2eproto_once,
@@ -666,7 +666,7 @@ User::User(::google::protobuf::Arena* arena)
 inline PROTOBUF_NDEBUG_INLINE User::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::doctor_console::User& from_msg)
-      : id_(arena, from.id_),
+      : id_string_(arena, from.id_string_),
         name_(arena, from.name_),
         _cached_size_{0} {}
 
@@ -690,7 +690,7 @@ User::User(
 inline PROTOBUF_NDEBUG_INLINE User::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
-      : id_(arena),
+      : id_string_(arena),
         name_(arena),
         _cached_size_{0} {}
 
@@ -706,7 +706,7 @@ inline void User::SharedDtor(MessageLite& self) {
   User& this_ = static_cast<User&>(self);
   this_._internal_metadata_.Delete<::google::protobuf::UnknownFieldSet>();
   ABSL_DCHECK(this_.GetArena() == nullptr);
-  this_._impl_.id_.Destroy();
+  this_._impl_.id_string_.Destroy();
   this_._impl_.name_.Destroy();
   this_._impl_.~Impl_();
 }
@@ -747,7 +747,7 @@ const ::google::protobuf::internal::ClassData* User::GetClassData() const {
   return _class_data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<2, 3, 0, 34, 2> User::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 41, 2> User::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
@@ -769,9 +769,9 @@ const ::_pbi::TcParseTable<2, 3, 0, 34, 2> User::_table_ = {
     // bool authenticated = 1;
     {::_pbi::TcParser::SingularVarintNoZag1<bool, offsetof(User, _impl_.authenticated_), 63>(),
      {8, 63, 0, PROTOBUF_FIELD_OFFSET(User, _impl_.authenticated_)}},
-    // string id = 2;
+    // string id_string = 2;
     {::_pbi::TcParser::FastUS1,
-     {18, 63, 0, PROTOBUF_FIELD_OFFSET(User, _impl_.id_)}},
+     {18, 63, 0, PROTOBUF_FIELD_OFFSET(User, _impl_.id_string_)}},
     // string name = 3;
     {::_pbi::TcParser::FastUS1,
      {26, 63, 0, PROTOBUF_FIELD_OFFSET(User, _impl_.name_)}},
@@ -781,8 +781,8 @@ const ::_pbi::TcParseTable<2, 3, 0, 34, 2> User::_table_ = {
     // bool authenticated = 1;
     {PROTOBUF_FIELD_OFFSET(User, _impl_.authenticated_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kBool)},
-    // string id = 2;
-    {PROTOBUF_FIELD_OFFSET(User, _impl_.id_), 0, 0,
+    // string id_string = 2;
+    {PROTOBUF_FIELD_OFFSET(User, _impl_.id_string_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
     // string name = 3;
     {PROTOBUF_FIELD_OFFSET(User, _impl_.name_), 0, 0,
@@ -790,9 +790,9 @@ const ::_pbi::TcParseTable<2, 3, 0, 34, 2> User::_table_ = {
   }},
   // no aux_entries
   {{
-    "\23\0\2\4\0\0\0\0"
+    "\23\0\11\4\0\0\0\0"
     "doctor_console.User"
-    "id"
+    "id_string"
     "name"
   }},
 };
@@ -804,7 +804,7 @@ PROTOBUF_NOINLINE void User::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.id_.ClearToEmpty();
+  _impl_.id_string_.ClearToEmpty();
   _impl_.name_.ClearToEmpty();
   _impl_.authenticated_ = false;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
@@ -832,11 +832,11 @@ PROTOBUF_NOINLINE void User::Clear() {
                 1, this_._internal_authenticated(), target);
           }
 
-          // string id = 2;
-          if (!this_._internal_id().empty()) {
-            const std::string& _s = this_._internal_id();
+          // string id_string = 2;
+          if (!this_._internal_id_string().empty()) {
+            const std::string& _s = this_._internal_id_string();
             ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "doctor_console.User.id");
+                _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "doctor_console.User.id_string");
             target = stream->WriteStringMaybeAliased(2, _s, target);
           }
 
@@ -873,10 +873,10 @@ PROTOBUF_NOINLINE void User::Clear() {
 
           ::_pbi::Prefetch5LinesFrom7Lines(&this_);
            {
-            // string id = 2;
-            if (!this_._internal_id().empty()) {
+            // string id_string = 2;
+            if (!this_._internal_id_string().empty()) {
               total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
-                                              this_._internal_id());
+                                              this_._internal_id_string());
             }
             // string name = 3;
             if (!this_._internal_name().empty()) {
@@ -900,8 +900,8 @@ void User::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::google::pr
   ::uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_id().empty()) {
-    _this->_internal_set_id(from._internal_id());
+  if (!from._internal_id_string().empty()) {
+    _this->_internal_set_id_string(from._internal_id_string());
   }
   if (!from._internal_name().empty()) {
     _this->_internal_set_name(from._internal_name());
@@ -925,7 +925,7 @@ void User::InternalSwap(User* PROTOBUF_RESTRICT other) {
   auto* arena = GetArena();
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_, &other->_impl_.id_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.id_string_, &other->_impl_.id_string_, arena);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.name_, &other->_impl_.name_, arena);
         swap(_impl_.authenticated_, other->_impl_.authenticated_);
 }

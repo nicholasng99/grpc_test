@@ -12,7 +12,7 @@ message Settings {
 
 message User {
   bool authenticated = 1;
-  string id = 2;
+  string id_string = 2;
   string name = 3;
 }
 
@@ -22,10 +22,10 @@ message Credentials {
 }
 
 service DoctorConsoleService {
-  rpc GetSettings(Empty) returns (Settings);
-  rpc SetSettings(Settings) returns (Empty);
-  rpc GetUser(Empty) returns (User);
-  rpc EyeCalibration(Empty) returns (Empty);
-  rpc Login(Credentials) returns (User);
-  rpc Logout(Empty) returns (Empty);
+  rpc getSettings(Empty) returns (Settings);
+  rpc setSettings(Settings) returns (Empty);
+  rpc getUser(Empty) returns (User);
+  rpc eyeCalibration(Empty) returns (Empty);
+  rpc login(Credentials) returns (User);
+  rpc logout(Empty) returns (User);
 }

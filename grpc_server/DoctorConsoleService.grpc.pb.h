@@ -35,141 +35,141 @@ class DoctorConsoleService final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Settings* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>> AsyncGetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>>(AsyncGetSettingsRaw(context, request, cq));
+    virtual ::grpc::Status getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Settings* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>> AsyncgetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>>(AsyncgetSettingsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>> PrepareAsyncGetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>>(PrepareAsyncGetSettingsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>> PrepareAsyncgetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>>(PrepareAsyncgetSettingsRaw(context, request, cq));
     }
-    virtual ::grpc::Status SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::doctor_console::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsyncSetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsyncSetSettingsRaw(context, request, cq));
+    virtual ::grpc::Status setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::doctor_console::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsyncsetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsyncsetSettingsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsyncSetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsyncSetSettingsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsyncsetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsyncsetSettingsRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> AsyncGetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(AsyncGetUserRaw(context, request, cq));
+    virtual ::grpc::Status getUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> AsyncgetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(AsyncgetUserRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> PrepareAsyncGetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(PrepareAsyncGetUserRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> PrepareAsyncgetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(PrepareAsyncgetUserRaw(context, request, cq));
     }
-    virtual ::grpc::Status EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsyncEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsyncEyeCalibrationRaw(context, request, cq));
+    virtual ::grpc::Status eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsynceyeCalibrationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsyncEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsyncEyeCalibrationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsynceyeCalibrationRaw(context, request, cq));
     }
-    virtual ::grpc::Status Login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> AsyncLogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(AsyncLoginRaw(context, request, cq));
+    virtual ::grpc::Status login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> Asynclogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(AsyncloginRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> PrepareAsyncLogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(PrepareAsyncLoginRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> PrepareAsynclogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(PrepareAsyncloginRaw(context, request, cq));
     }
-    virtual ::grpc::Status Logout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsyncLogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsyncLogoutRaw(context, request, cq));
+    virtual ::grpc::Status logout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> Asynclogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(AsynclogoutRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsyncLogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsyncLogoutRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> PrepareAsynclogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(PrepareAsynclogoutRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void Logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>* AsyncGetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>* PrepareAsyncGetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsyncSetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncSetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsyncGetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsyncGetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsyncEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsyncLoginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsyncLoginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsyncLogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncLogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>* AsyncgetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Settings>* PrepareAsyncgetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Settings* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>> AsyncGetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>>(AsyncGetSettingsRaw(context, request, cq));
+    ::grpc::Status getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Settings* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>> AsyncgetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>>(AsyncgetSettingsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>> PrepareAsyncGetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>>(PrepareAsyncGetSettingsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>> PrepareAsyncgetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>>(PrepareAsyncgetSettingsRaw(context, request, cq));
     }
-    ::grpc::Status SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::doctor_console::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsyncSetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsyncSetSettingsRaw(context, request, cq));
+    ::grpc::Status setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::doctor_console::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsyncsetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsyncsetSettingsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsyncSetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsyncSetSettingsRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsyncsetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsyncsetSettingsRaw(context, request, cq));
     }
-    ::grpc::Status GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> AsyncGetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(AsyncGetUserRaw(context, request, cq));
+    ::grpc::Status getUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> AsyncgetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(AsyncgetUserRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> PrepareAsyncGetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(PrepareAsyncGetUserRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> PrepareAsyncgetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(PrepareAsyncgetUserRaw(context, request, cq));
     }
-    ::grpc::Status EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsyncEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsyncEyeCalibrationRaw(context, request, cq));
+    ::grpc::Status eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsynceyeCalibrationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsyncEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsyncEyeCalibrationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsynceyeCalibrationRaw(context, request, cq));
     }
-    ::grpc::Status Login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> AsyncLogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(AsyncLoginRaw(context, request, cq));
+    ::grpc::Status login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> Asynclogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(AsyncloginRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> PrepareAsyncLogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(PrepareAsyncLoginRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> PrepareAsynclogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(PrepareAsyncloginRaw(context, request, cq));
     }
-    ::grpc::Status Logout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsyncLogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsyncLogoutRaw(context, request, cq));
+    ::grpc::Status logout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> Asynclogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(AsynclogoutRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsyncLogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsyncLogoutRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> PrepareAsynclogout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(PrepareAsynclogoutRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, std::function<void(::grpc::Status)>) override;
-      void GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
-      void SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
-      void GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
-      void EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
-      void Login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void Logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
-      void Logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, std::function<void(::grpc::Status)>) override;
+      void getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
+      void setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
+      void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
+      void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
+      void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
+      void logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -181,24 +181,24 @@ class DoctorConsoleService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* AsyncGetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* PrepareAsyncGetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsyncSetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncSetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsyncGetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsyncGetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsyncEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsyncLoginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsyncLoginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsyncLogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncLogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_GetSettings_;
-    const ::grpc::internal::RpcMethod rpcmethod_SetSettings_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetUser_;
-    const ::grpc::internal::RpcMethod rpcmethod_EyeCalibration_;
-    const ::grpc::internal::RpcMethod rpcmethod_Login_;
-    const ::grpc::internal::RpcMethod rpcmethod_Logout_;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* AsyncgetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* PrepareAsyncgetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_getSettings_;
+    const ::grpc::internal::RpcMethod rpcmethod_setSettings_;
+    const ::grpc::internal::RpcMethod rpcmethod_getUser_;
+    const ::grpc::internal::RpcMethod rpcmethod_eyeCalibration_;
+    const ::grpc::internal::RpcMethod rpcmethod_login_;
+    const ::grpc::internal::RpcMethod rpcmethod_logout_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -206,817 +206,817 @@ class DoctorConsoleService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status GetSettings(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response);
-    virtual ::grpc::Status SetSettings(::grpc::ServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response);
-    virtual ::grpc::Status GetUser(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response);
-    virtual ::grpc::Status EyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response);
-    virtual ::grpc::Status Login(::grpc::ServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response);
-    virtual ::grpc::Status Logout(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response);
+    virtual ::grpc::Status getSettings(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response);
+    virtual ::grpc::Status setSettings(::grpc::ServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response);
+    virtual ::grpc::Status getUser(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response);
+    virtual ::grpc::Status eyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response);
+    virtual ::grpc::Status login(::grpc::ServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response);
+    virtual ::grpc::Status logout(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetSettings : public BaseClass {
+  class WithAsyncMethod_getSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetSettings() {
+    WithAsyncMethod_getSettings() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_GetSettings() override {
+    ~WithAsyncMethod_getSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
+    ::grpc::Status getSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetSettings(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Settings>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetSettings(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Settings>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_SetSettings : public BaseClass {
+  class WithAsyncMethod_setSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_SetSettings() {
+    WithAsyncMethod_setSettings() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_SetSettings() override {
+    ~WithAsyncMethod_setSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status setSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetSettings(::grpc::ServerContext* context, ::doctor_console::Settings* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestsetSettings(::grpc::ServerContext* context, ::doctor_console::Settings* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetUser : public BaseClass {
+  class WithAsyncMethod_getUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetUser() {
+    WithAsyncMethod_getUser() {
       ::grpc::Service::MarkMethodAsync(2);
     }
-    ~WithAsyncMethod_GetUser() override {
+    ~WithAsyncMethod_getUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status getUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetUser(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetUser(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_EyeCalibration : public BaseClass {
+  class WithAsyncMethod_eyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_EyeCalibration() {
+    WithAsyncMethod_eyeCalibration() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_EyeCalibration() override {
+    ~WithAsyncMethod_eyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestEyeCalibration(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequesteyeCalibration(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_Login : public BaseClass {
+  class WithAsyncMethod_login : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_Login() {
+    WithAsyncMethod_login() {
       ::grpc::Service::MarkMethodAsync(4);
     }
-    ~WithAsyncMethod_Login() override {
+    ~WithAsyncMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestLogin(::grpc::ServerContext* context, ::doctor_console::Credentials* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestlogin(::grpc::ServerContext* context, ::doctor_console::Credentials* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_Logout : public BaseClass {
+  class WithAsyncMethod_logout : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_Logout() {
+    WithAsyncMethod_logout() {
       ::grpc::Service::MarkMethodAsync(5);
     }
-    ~WithAsyncMethod_Logout() override {
+    ~WithAsyncMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestLogout(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestlogout(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetSettings<WithAsyncMethod_SetSettings<WithAsyncMethod_GetUser<WithAsyncMethod_EyeCalibration<WithAsyncMethod_Login<WithAsyncMethod_Logout<Service > > > > > > AsyncService;
+  typedef WithAsyncMethod_getSettings<WithAsyncMethod_setSettings<WithAsyncMethod_getUser<WithAsyncMethod_eyeCalibration<WithAsyncMethod_login<WithAsyncMethod_logout<Service > > > > > > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_GetSettings : public BaseClass {
+  class WithCallbackMethod_getSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetSettings() {
+    WithCallbackMethod_getSettings() {
       ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Settings>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response) { return this->GetSettings(context, request, response); }));}
-    void SetMessageAllocatorFor_GetSettings(
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response) { return this->getSettings(context, request, response); }));}
+    void SetMessageAllocatorFor_getSettings(
         ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::Settings>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Settings>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetSettings() override {
+    ~WithCallbackMethod_getSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
+    ::grpc::Status getSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetSettings(
+    virtual ::grpc::ServerUnaryReactor* getSettings(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_SetSettings : public BaseClass {
+  class WithCallbackMethod_setSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_SetSettings() {
+    WithCallbackMethod_setSettings() {
       ::grpc::Service::MarkMethodCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Settings, ::doctor_console::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response) { return this->SetSettings(context, request, response); }));}
-    void SetMessageAllocatorFor_SetSettings(
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response) { return this->setSettings(context, request, response); }));}
+    void SetMessageAllocatorFor_setSettings(
         ::grpc::MessageAllocator< ::doctor_console::Settings, ::doctor_console::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Settings, ::doctor_console::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_SetSettings() override {
+    ~WithCallbackMethod_setSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status setSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* SetSettings(
+    virtual ::grpc::ServerUnaryReactor* setSettings(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_GetUser : public BaseClass {
+  class WithCallbackMethod_getUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_GetUser() {
+    WithCallbackMethod_getUser() {
       ::grpc::Service::MarkMethodCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::User>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) { return this->GetUser(context, request, response); }));}
-    void SetMessageAllocatorFor_GetUser(
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) { return this->getUser(context, request, response); }));}
+    void SetMessageAllocatorFor_getUser(
         ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::User>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_GetUser() override {
+    ~WithCallbackMethod_getUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status getUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetUser(
+    virtual ::grpc::ServerUnaryReactor* getUser(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_EyeCalibration : public BaseClass {
+  class WithCallbackMethod_eyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_EyeCalibration() {
+    WithCallbackMethod_eyeCalibration() {
       ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) { return this->EyeCalibration(context, request, response); }));}
-    void SetMessageAllocatorFor_EyeCalibration(
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) { return this->eyeCalibration(context, request, response); }));}
+    void SetMessageAllocatorFor_eyeCalibration(
         ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_EyeCalibration() override {
+    ~WithCallbackMethod_eyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* EyeCalibration(
+    virtual ::grpc::ServerUnaryReactor* eyeCalibration(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_Login : public BaseClass {
+  class WithCallbackMethod_login : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Login() {
+    WithCallbackMethod_login() {
       ::grpc::Service::MarkMethodCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Credentials, ::doctor_console::User>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response) { return this->Login(context, request, response); }));}
-    void SetMessageAllocatorFor_Login(
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response) { return this->login(context, request, response); }));}
+    void SetMessageAllocatorFor_login(
         ::grpc::MessageAllocator< ::doctor_console::Credentials, ::doctor_console::User>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Credentials, ::doctor_console::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_Login() override {
+    ~WithCallbackMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* Login(
+    virtual ::grpc::ServerUnaryReactor* login(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_Logout : public BaseClass {
+  class WithCallbackMethod_logout : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_Logout() {
+    WithCallbackMethod_logout() {
       ::grpc::Service::MarkMethodCallback(5,
-          new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>(
+          new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::User>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) { return this->Logout(context, request, response); }));}
-    void SetMessageAllocatorFor_Logout(
-        ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::Empty>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) { return this->logout(context, request, response); }));}
+    void SetMessageAllocatorFor_logout(
+        ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::User>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_Logout() override {
+    ~WithCallbackMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* Logout(
-      ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* logout(
+      ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GetSettings<WithCallbackMethod_SetSettings<WithCallbackMethod_GetUser<WithCallbackMethod_EyeCalibration<WithCallbackMethod_Login<WithCallbackMethod_Logout<Service > > > > > > CallbackService;
+  typedef WithCallbackMethod_getSettings<WithCallbackMethod_setSettings<WithCallbackMethod_getUser<WithCallbackMethod_eyeCalibration<WithCallbackMethod_login<WithCallbackMethod_logout<Service > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_GetSettings : public BaseClass {
+  class WithGenericMethod_getSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetSettings() {
+    WithGenericMethod_getSettings() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_GetSettings() override {
+    ~WithGenericMethod_getSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
+    ::grpc::Status getSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_SetSettings : public BaseClass {
+  class WithGenericMethod_setSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_SetSettings() {
+    WithGenericMethod_setSettings() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_SetSettings() override {
+    ~WithGenericMethod_setSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status setSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetUser : public BaseClass {
+  class WithGenericMethod_getUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetUser() {
+    WithGenericMethod_getUser() {
       ::grpc::Service::MarkMethodGeneric(2);
     }
-    ~WithGenericMethod_GetUser() override {
+    ~WithGenericMethod_getUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status getUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_EyeCalibration : public BaseClass {
+  class WithGenericMethod_eyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_EyeCalibration() {
+    WithGenericMethod_eyeCalibration() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_EyeCalibration() override {
+    ~WithGenericMethod_eyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Login : public BaseClass {
+  class WithGenericMethod_login : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_Login() {
+    WithGenericMethod_login() {
       ::grpc::Service::MarkMethodGeneric(4);
     }
-    ~WithGenericMethod_Login() override {
+    ~WithGenericMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_Logout : public BaseClass {
+  class WithGenericMethod_logout : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_Logout() {
+    WithGenericMethod_logout() {
       ::grpc::Service::MarkMethodGeneric(5);
     }
-    ~WithGenericMethod_Logout() override {
+    ~WithGenericMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetSettings : public BaseClass {
+  class WithRawMethod_getSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetSettings() {
+    WithRawMethod_getSettings() {
       ::grpc::Service::MarkMethodRaw(0);
     }
-    ~WithRawMethod_GetSettings() override {
+    ~WithRawMethod_getSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
+    ::grpc::Status getSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_SetSettings : public BaseClass {
+  class WithRawMethod_setSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_SetSettings() {
+    WithRawMethod_setSettings() {
       ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_SetSettings() override {
+    ~WithRawMethod_setSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status setSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestsetSettings(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetUser : public BaseClass {
+  class WithRawMethod_getUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetUser() {
+    WithRawMethod_getUser() {
       ::grpc::Service::MarkMethodRaw(2);
     }
-    ~WithRawMethod_GetUser() override {
+    ~WithRawMethod_getUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status getUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetUser(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestgetUser(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_EyeCalibration : public BaseClass {
+  class WithRawMethod_eyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_EyeCalibration() {
+    WithRawMethod_eyeCalibration() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_EyeCalibration() override {
+    ~WithRawMethod_eyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestEyeCalibration(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequesteyeCalibration(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_Login : public BaseClass {
+  class WithRawMethod_login : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_Login() {
+    WithRawMethod_login() {
       ::grpc::Service::MarkMethodRaw(4);
     }
-    ~WithRawMethod_Login() override {
+    ~WithRawMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestLogin(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestlogin(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_Logout : public BaseClass {
+  class WithRawMethod_logout : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_Logout() {
+    WithRawMethod_logout() {
       ::grpc::Service::MarkMethodRaw(5);
     }
-    ~WithRawMethod_Logout() override {
+    ~WithRawMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestLogout(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void Requestlogout(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetSettings : public BaseClass {
+  class WithRawCallbackMethod_getSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetSettings() {
+    WithRawCallbackMethod_getSettings() {
       ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetSettings(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getSettings(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetSettings() override {
+    ~WithRawCallbackMethod_getSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
+    ::grpc::Status getSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetSettings(
+    virtual ::grpc::ServerUnaryReactor* getSettings(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_SetSettings : public BaseClass {
+  class WithRawCallbackMethod_setSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_SetSettings() {
+    WithRawCallbackMethod_setSettings() {
       ::grpc::Service::MarkMethodRawCallback(1,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetSettings(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->setSettings(context, request, response); }));
     }
-    ~WithRawCallbackMethod_SetSettings() override {
+    ~WithRawCallbackMethod_setSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status setSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* SetSettings(
+    virtual ::grpc::ServerUnaryReactor* setSettings(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_GetUser : public BaseClass {
+  class WithRawCallbackMethod_getUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_GetUser() {
+    WithRawCallbackMethod_getUser() {
       ::grpc::Service::MarkMethodRawCallback(2,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetUser(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->getUser(context, request, response); }));
     }
-    ~WithRawCallbackMethod_GetUser() override {
+    ~WithRawCallbackMethod_getUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status getUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* GetUser(
+    virtual ::grpc::ServerUnaryReactor* getUser(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_EyeCalibration : public BaseClass {
+  class WithRawCallbackMethod_eyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_EyeCalibration() {
+    WithRawCallbackMethod_eyeCalibration() {
       ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->EyeCalibration(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->eyeCalibration(context, request, response); }));
     }
-    ~WithRawCallbackMethod_EyeCalibration() override {
+    ~WithRawCallbackMethod_eyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status EyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* EyeCalibration(
+    virtual ::grpc::ServerUnaryReactor* eyeCalibration(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Login : public BaseClass {
+  class WithRawCallbackMethod_login : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Login() {
+    WithRawCallbackMethod_login() {
       ::grpc::Service::MarkMethodRawCallback(4,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Login(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->login(context, request, response); }));
     }
-    ~WithRawCallbackMethod_Login() override {
+    ~WithRawCallbackMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* Login(
+    virtual ::grpc::ServerUnaryReactor* login(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_Logout : public BaseClass {
+  class WithRawCallbackMethod_logout : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_Logout() {
+    WithRawCallbackMethod_logout() {
       ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->Logout(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->logout(context, request, response); }));
     }
-    ~WithRawCallbackMethod_Logout() override {
+    ~WithRawCallbackMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* Logout(
+    virtual ::grpc::ServerUnaryReactor* logout(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetSettings : public BaseClass {
+  class WithStreamedUnaryMethod_getSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetSettings() {
+    WithStreamedUnaryMethod_getSettings() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Empty, ::doctor_console::Settings>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::doctor_console::Empty, ::doctor_console::Settings>* streamer) {
-                       return this->StreamedGetSettings(context,
+                       return this->StreamedgetSettings(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetSettings() override {
+    ~WithStreamedUnaryMethod_getSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
+    ::grpc::Status getSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Settings* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Settings>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedgetSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Settings>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_SetSettings : public BaseClass {
+  class WithStreamedUnaryMethod_setSettings : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_SetSettings() {
+    WithStreamedUnaryMethod_setSettings() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Settings, ::doctor_console::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::doctor_console::Settings, ::doctor_console::Empty>* streamer) {
-                       return this->StreamedSetSettings(context,
+                       return this->StreamedsetSettings(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_SetSettings() override {
+    ~WithStreamedUnaryMethod_setSettings() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status setSettings(::grpc::ServerContext* /*context*/, const ::doctor_console::Settings* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSetSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Settings,::doctor_console::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedsetSettings(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Settings,::doctor_console::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetUser : public BaseClass {
+  class WithStreamedUnaryMethod_getUser : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetUser() {
+    WithStreamedUnaryMethod_getUser() {
       ::grpc::Service::MarkMethodStreamed(2,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Empty, ::doctor_console::User>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::doctor_console::Empty, ::doctor_console::User>* streamer) {
-                       return this->StreamedGetUser(context,
+                       return this->StreamedgetUser(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetUser() override {
+    ~WithStreamedUnaryMethod_getUser() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status getUser(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::User>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedgetUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::User>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_EyeCalibration : public BaseClass {
+  class WithStreamedUnaryMethod_eyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_EyeCalibration() {
+    WithStreamedUnaryMethod_eyeCalibration() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Empty, ::doctor_console::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::doctor_console::Empty, ::doctor_console::Empty>* streamer) {
-                       return this->StreamedEyeCalibration(context,
+                       return this->StreamedeyeCalibration(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_EyeCalibration() override {
+    ~WithStreamedUnaryMethod_eyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status EyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedEyeCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedeyeCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_Login : public BaseClass {
+  class WithStreamedUnaryMethod_login : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_Login() {
+    WithStreamedUnaryMethod_login() {
       ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Credentials, ::doctor_console::User>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::doctor_console::Credentials, ::doctor_console::User>* streamer) {
-                       return this->StreamedLogin(context,
+                       return this->Streamedlogin(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_Login() override {
+    ~WithStreamedUnaryMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
+    ::grpc::Status login(::grpc::ServerContext* /*context*/, const ::doctor_console::Credentials* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedLogin(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Credentials,::doctor_console::User>* server_unary_streamer) = 0;
+    virtual ::grpc::Status Streamedlogin(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Credentials,::doctor_console::User>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_Logout : public BaseClass {
+  class WithStreamedUnaryMethod_logout : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_Logout() {
+    WithStreamedUnaryMethod_logout() {
       ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::doctor_console::Empty, ::doctor_console::Empty>(
+          ::doctor_console::Empty, ::doctor_console::User>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::doctor_console::Empty, ::doctor_console::Empty>* streamer) {
-                       return this->StreamedLogout(context,
+                     ::doctor_console::Empty, ::doctor_console::User>* streamer) {
+                       return this->Streamedlogout(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_Logout() override {
+    ~WithStreamedUnaryMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status logout(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedLogout(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status Streamedlogout(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::User>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetSettings<WithStreamedUnaryMethod_SetSettings<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_EyeCalibration<WithStreamedUnaryMethod_Login<WithStreamedUnaryMethod_Logout<Service > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_getSettings<WithStreamedUnaryMethod_setSettings<WithStreamedUnaryMethod_getUser<WithStreamedUnaryMethod_eyeCalibration<WithStreamedUnaryMethod_login<WithStreamedUnaryMethod_logout<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetSettings<WithStreamedUnaryMethod_SetSettings<WithStreamedUnaryMethod_GetUser<WithStreamedUnaryMethod_EyeCalibration<WithStreamedUnaryMethod_Login<WithStreamedUnaryMethod_Logout<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_getSettings<WithStreamedUnaryMethod_setSettings<WithStreamedUnaryMethod_getUser<WithStreamedUnaryMethod_eyeCalibration<WithStreamedUnaryMethod_login<WithStreamedUnaryMethod_logout<Service > > > > > > StreamedService;
 };
 
 }  // namespace doctor_console

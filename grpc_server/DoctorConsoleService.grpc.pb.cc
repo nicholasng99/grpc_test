@@ -22,12 +22,12 @@
 namespace doctor_console {
 
 static const char* DoctorConsoleService_method_names[] = {
-  "/doctor_console.DoctorConsoleService/GetSettings",
-  "/doctor_console.DoctorConsoleService/SetSettings",
-  "/doctor_console.DoctorConsoleService/GetUser",
-  "/doctor_console.DoctorConsoleService/EyeCalibration",
-  "/doctor_console.DoctorConsoleService/Login",
-  "/doctor_console.DoctorConsoleService/Logout",
+  "/doctor_console.DoctorConsoleService/getSettings",
+  "/doctor_console.DoctorConsoleService/setSettings",
+  "/doctor_console.DoctorConsoleService/getUser",
+  "/doctor_console.DoctorConsoleService/eyeCalibration",
+  "/doctor_console.DoctorConsoleService/login",
+  "/doctor_console.DoctorConsoleService/logout",
 };
 
 std::unique_ptr< DoctorConsoleService::Stub> DoctorConsoleService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -37,148 +37,148 @@ std::unique_ptr< DoctorConsoleService::Stub> DoctorConsoleService::NewStub(const
 }
 
 DoctorConsoleService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_GetSettings_(DoctorConsoleService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetSettings_(DoctorConsoleService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetUser_(DoctorConsoleService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_EyeCalibration_(DoctorConsoleService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Login_(DoctorConsoleService_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_Logout_(DoctorConsoleService_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_getSettings_(DoctorConsoleService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_setSettings_(DoctorConsoleService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_getUser_(DoctorConsoleService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_eyeCalibration_(DoctorConsoleService_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_login_(DoctorConsoleService_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_logout_(DoctorConsoleService_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status DoctorConsoleService::Stub::GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Settings* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::Settings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetSettings_, context, request, response);
+::grpc::Status DoctorConsoleService::Stub::getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Settings* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::Settings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getSettings_, context, request, response);
 }
 
-void DoctorConsoleService::Stub::async::GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::Settings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSettings_, context, request, response, std::move(f));
+void DoctorConsoleService::Stub::async::getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::Settings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getSettings_, context, request, response, std::move(f));
 }
 
-void DoctorConsoleService::Stub::async::GetSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetSettings_, context, request, response, reactor);
+void DoctorConsoleService::Stub::async::getSettings(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getSettings_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* DoctorConsoleService::Stub::PrepareAsyncGetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Settings, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetSettings_, context, request);
+::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* DoctorConsoleService::Stub::PrepareAsyncgetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Settings, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getSettings_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* DoctorConsoleService::Stub::AsyncGetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::doctor_console::Settings>* DoctorConsoleService::Stub::AsyncgetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetSettingsRaw(context, request, cq);
+    this->PrepareAsyncgetSettingsRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status DoctorConsoleService::Stub::SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::doctor_console::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Settings, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetSettings_, context, request, response);
+::grpc::Status DoctorConsoleService::Stub::setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::doctor_console::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Settings, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_setSettings_, context, request, response);
 }
 
-void DoctorConsoleService::Stub::async::SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Settings, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetSettings_, context, request, response, std::move(f));
+void DoctorConsoleService::Stub::async::setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Settings, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_setSettings_, context, request, response, std::move(f));
 }
 
-void DoctorConsoleService::Stub::async::SetSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetSettings_, context, request, response, reactor);
+void DoctorConsoleService::Stub::async::setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_setSettings_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::PrepareAsyncSetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Empty, ::doctor_console::Settings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetSettings_, context, request);
+::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::PrepareAsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Empty, ::doctor_console::Settings, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_setSettings_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::AsyncSetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::AsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncSetSettingsRaw(context, request, cq);
+    this->PrepareAsyncsetSettingsRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status DoctorConsoleService::Stub::GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetUser_, context, request, response);
+::grpc::Status DoctorConsoleService::Stub::getUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_getUser_, context, request, response);
 }
 
-void DoctorConsoleService::Stub::async::GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetUser_, context, request, response, std::move(f));
+void DoctorConsoleService::Stub::async::getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getUser_, context, request, response, std::move(f));
 }
 
-void DoctorConsoleService::Stub::async::GetUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetUser_, context, request, response, reactor);
+void DoctorConsoleService::Stub::async::getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_getUser_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::PrepareAsyncGetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::User, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetUser_, context, request);
+::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::PrepareAsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::User, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_getUser_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::AsyncGetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::AsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncGetUserRaw(context, request, cq);
+    this->PrepareAsyncgetUserRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status DoctorConsoleService::Stub::EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_EyeCalibration_, context, request, response);
+::grpc::Status DoctorConsoleService::Stub::eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_eyeCalibration_, context, request, response);
 }
 
-void DoctorConsoleService::Stub::async::EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_EyeCalibration_, context, request, response, std::move(f));
+void DoctorConsoleService::Stub::async::eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_eyeCalibration_, context, request, response, std::move(f));
 }
 
-void DoctorConsoleService::Stub::async::EyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_EyeCalibration_, context, request, response, reactor);
+void DoctorConsoleService::Stub::async::eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_eyeCalibration_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::PrepareAsyncEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_EyeCalibration_, context, request);
+::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::PrepareAsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_eyeCalibration_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::AsyncEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::AsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncEyeCalibrationRaw(context, request, cq);
+    this->PrepareAsynceyeCalibrationRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status DoctorConsoleService::Stub::Login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Credentials, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Login_, context, request, response);
+::grpc::Status DoctorConsoleService::Stub::login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Credentials, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_login_, context, request, response);
 }
 
-void DoctorConsoleService::Stub::async::Login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Credentials, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Login_, context, request, response, std::move(f));
+void DoctorConsoleService::Stub::async::login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Credentials, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_login_, context, request, response, std::move(f));
 }
 
-void DoctorConsoleService::Stub::async::Login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Login_, context, request, response, reactor);
+void DoctorConsoleService::Stub::async::login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_login_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::PrepareAsyncLoginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::User, ::doctor_console::Credentials, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Login_, context, request);
+::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::PrepareAsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::User, ::doctor_console::Credentials, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_login_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::AsyncLoginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::AsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncLoginRaw(context, request, cq);
+    this->PrepareAsyncloginRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status DoctorConsoleService::Stub::Logout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Logout_, context, request, response);
+::grpc::Status DoctorConsoleService::Stub::logout(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::User* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_logout_, context, request, response);
 }
 
-void DoctorConsoleService::Stub::async::Logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Logout_, context, request, response, std::move(f));
+void DoctorConsoleService::Stub::async::logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_logout_, context, request, response, std::move(f));
 }
 
-void DoctorConsoleService::Stub::async::Logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Logout_, context, request, response, reactor);
+void DoctorConsoleService::Stub::async::logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_logout_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::PrepareAsyncLogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Logout_, context, request);
+::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::PrepareAsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::doctor_console::User, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_logout_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* DoctorConsoleService::Stub::AsyncLogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::doctor_console::User>* DoctorConsoleService::Stub::AsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncLogoutRaw(context, request, cq);
+    this->PrepareAsynclogoutRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -192,7 +192,7 @@ DoctorConsoleService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::doctor_console::Empty* req,
              ::doctor_console::Settings* resp) {
-               return service->GetSettings(ctx, req, resp);
+               return service->getSettings(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DoctorConsoleService_method_names[1],
@@ -202,7 +202,7 @@ DoctorConsoleService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::doctor_console::Settings* req,
              ::doctor_console::Empty* resp) {
-               return service->SetSettings(ctx, req, resp);
+               return service->setSettings(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DoctorConsoleService_method_names[2],
@@ -212,7 +212,7 @@ DoctorConsoleService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::doctor_console::Empty* req,
              ::doctor_console::User* resp) {
-               return service->GetUser(ctx, req, resp);
+               return service->getUser(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DoctorConsoleService_method_names[3],
@@ -222,7 +222,7 @@ DoctorConsoleService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::doctor_console::Empty* req,
              ::doctor_console::Empty* resp) {
-               return service->EyeCalibration(ctx, req, resp);
+               return service->eyeCalibration(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DoctorConsoleService_method_names[4],
@@ -232,59 +232,59 @@ DoctorConsoleService::Service::Service() {
              ::grpc::ServerContext* ctx,
              const ::doctor_console::Credentials* req,
              ::doctor_console::User* resp) {
-               return service->Login(ctx, req, resp);
+               return service->login(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       DoctorConsoleService_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< DoctorConsoleService::Service, ::doctor_console::Empty, ::doctor_console::Empty, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< DoctorConsoleService::Service, ::doctor_console::Empty, ::doctor_console::User, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](DoctorConsoleService::Service* service,
              ::grpc::ServerContext* ctx,
              const ::doctor_console::Empty* req,
-             ::doctor_console::Empty* resp) {
-               return service->Logout(ctx, req, resp);
+             ::doctor_console::User* resp) {
+               return service->logout(ctx, req, resp);
              }, this)));
 }
 
 DoctorConsoleService::Service::~Service() {
 }
 
-::grpc::Status DoctorConsoleService::Service::GetSettings(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response) {
+::grpc::Status DoctorConsoleService::Service::getSettings(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DoctorConsoleService::Service::SetSettings(::grpc::ServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response) {
+::grpc::Status DoctorConsoleService::Service::setSettings(::grpc::ServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DoctorConsoleService::Service::GetUser(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) {
+::grpc::Status DoctorConsoleService::Service::getUser(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DoctorConsoleService::Service::EyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) {
+::grpc::Status DoctorConsoleService::Service::eyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DoctorConsoleService::Service::Login(::grpc::ServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response) {
+::grpc::Status DoctorConsoleService::Service::login(::grpc::ServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status DoctorConsoleService::Service::Logout(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) {
+::grpc::Status DoctorConsoleService::Service::logout(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) {
   (void) context;
   (void) request;
   (void) response;

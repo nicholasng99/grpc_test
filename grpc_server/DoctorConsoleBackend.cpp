@@ -11,18 +11,22 @@ DoctorConsoleBackend::DoctorConsoleBackend()
     m_settings.set_eye_control_enabled(false);
 
     m_user.set_authenticated(false);
-    m_user.set_id("-1");
+    m_user.set_id_string("-1");
     m_user.set_name("");
 }
 
-Status DoctorConsoleBackend::GetSettings(grpc::ServerContext *, const Empty *request, Settings *response)
+Status DoctorConsoleBackend::getSettings(grpc::ServerContext *, const Empty *request, Settings *response)
 {
+    std::shared_lock<std::shared_mutex> lock(m_settingsMutex);
+    std::cout << "get Settings" << std::endl;
     *response = m_settings;
     return Status();
 }
 
-Status DoctorConsoleBackend::SetSettings(grpc::ServerContext *, const Settings *request, Empty *response)
+Status DoctorConsoleBackend::setSettings(grpc::ServerContext *, const Settings *request, Empty *response)
 {
+    std::unique_lock<std::shared_mutex> lock(m_settingsMutex);
+    std::cout << "set Settings" << std::endl;
     if (request->has_language())
         m_settings.set_language(request->language());
     if (request->has_theme())
@@ -32,32 +36,42 @@ Status DoctorConsoleBackend::SetSettings(grpc::ServerContext *, const Settings *
     return Status();
 }
 
-Status DoctorConsoleBackend::GetUser(grpc::ServerContext *, const Empty *request, User *response)
+Status DoctorConsoleBackend::getUser(grpc::ServerContext *, const Empty *request, User *response)
 {
+    std::shared_lock<std::shared_mutex> lock(m_userMutex);
+    std::cout << "get User" << std::endl;
     *response = m_user;
     return Status();
 }
 
-Status DoctorConsoleBackend::EyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
+Status DoctorConsoleBackend::eyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
 {
     std::cout << "Eye calibration called!" << std::endl;
     return Status();
 }
 
-Status DoctorConsoleBackend::Login(grpc::ServerContext *, const Credentials *request, User *response)
+Status DoctorConsoleBackend::login(grpc::ServerContext *, const Credentials *request, User *response)
 {
+    std::unique_lock<std::shared_mutex> lock(m_userMutex);
+    std::cout << "Login attempt: " << request->username() << " - " << request->password() << std::endl;
     if (request->username() == "admin" && request->password() == "admin")
     {
-        m_user.set_id("0");
+        m_user.set_id_string("0");
         m_user.set_name(request->username());
         m_user.set_authenticated(true);
+        *response = m_user;
         std::cout << "Admin logged in!" << std::endl;
     }
     return Status();
 }
 
-Status DoctorConsoleBackend::Logout(grpc::ServerContext *, const Empty *request, Empty *response)
+Status DoctorConsoleBackend::logout(grpc::ServerContext *, const Empty *request, User *response)
 {
+    std::unique_lock<std::shared_mutex> lock(m_userMutex);
     std::cout << "Logout called!" << std::endl;
+    m_user.set_authenticated(false);
+    m_user.set_id_string("-1");
+    m_user.set_name("");
+    *response = m_user;
     return Status();
 }
