@@ -44,9 +44,15 @@ Status DoctorConsoleBackend::getUser(grpc::ServerContext *, const Empty *request
     return Status();
 }
 
-Status DoctorConsoleBackend::eyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
+Status DoctorConsoleBackend::startEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
 {
-    std::cout << "Eye calibration called!" << std::endl;
+    std::cout << "Start eye calibration called!" << std::endl;
+    return Status();
+}
+
+Status DoctorConsoleBackend::stopEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
+{
+    std::cout << "Stop eye calibration called!" << std::endl;
     return Status();
 }
 

@@ -210,23 +210,25 @@ const char descriptor_table_protodef_DoctorConsoleService_2eproto[] ABSL_ATTRIBU
     "_themeB\026\n\024_eye_control_enabled\">\n\004User\022\025"
     "\n\rauthenticated\030\001 \001(\010\022\021\n\tid_string\030\002 \001(\t"
     "\022\014\n\004name\030\003 \001(\t\"1\n\013Credentials\022\020\n\010usernam"
-    "e\030\001 \001(\t\022\020\n\010password\030\002 \001(\t2\201\003\n\024DoctorCons"
+    "e\030\001 \001(\t\022\020\n\010password\030\002 \001(\t2\312\003\n\024DoctorCons"
     "oleService\022>\n\013getSettings\022\025.doctor_conso"
     "le.Empty\032\030.doctor_console.Settings\022>\n\013se"
     "tSettings\022\030.doctor_console.Settings\032\025.do"
     "ctor_console.Empty\0226\n\007getUser\022\025.doctor_c"
-    "onsole.Empty\032\024.doctor_console.User\022>\n\016ey"
-    "eCalibration\022\025.doctor_console.Empty\032\025.do"
-    "ctor_console.Empty\022:\n\005login\022\033.doctor_con"
-    "sole.Credentials\032\024.doctor_console.User\0225"
-    "\n\006logout\022\025.doctor_console.Empty\032\024.doctor"
-    "_console.Userb\006proto3"
+    "onsole.Empty\032\024.doctor_console.User\022C\n\023st"
+    "artEyeCalibration\022\025.doctor_console.Empty"
+    "\032\025.doctor_console.Empty\022B\n\022stopEyeCalibr"
+    "ation\022\025.doctor_console.Empty\032\025.doctor_co"
+    "nsole.Empty\022:\n\005login\022\033.doctor_console.Cr"
+    "edentials\032\024.doctor_console.User\0225\n\006logou"
+    "t\022\025.doctor_console.Empty\032\024.doctor_consol"
+    "e.Userb\006proto3"
 };
 static ::absl::once_flag descriptor_table_DoctorConsoleService_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_DoctorConsoleService_2eproto = {
     false,
     false,
-    701,
+    774,
     descriptor_table_protodef_DoctorConsoleService_2eproto,
     "DoctorConsoleService.proto",
     &descriptor_table_DoctorConsoleService_2eproto_once,

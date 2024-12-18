@@ -25,7 +25,8 @@ service DoctorConsoleService {
   rpc getSettings(Empty) returns (Settings);
   rpc setSettings(Settings) returns (Empty);
   rpc getUser(Empty) returns (User);
-  rpc eyeCalibration(Empty) returns (Empty);
+  rpc startEyeCalibration(Empty) returns (Empty);
+  rpc stopEyeCalibration(Empty) returns (Empty);
   rpc login(Credentials) returns (User);
   rpc logout(Empty) returns (User);
 }

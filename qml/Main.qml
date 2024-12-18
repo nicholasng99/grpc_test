@@ -9,7 +9,7 @@ import doctor_console
 ApplicationWindow {
     id: root
     width: 350
-    height: 800
+    height: 850
 
     minimumWidth: width
     minimumHeight: height
@@ -129,8 +129,13 @@ ApplicationWindow {
         }
 
         Button{
-            text: qsTr("Eye Calibration")
-            onClicked: root.eyeCalibration()
+            text: qsTr("Start Eye Calibration")
+            onClicked: root.startEyeCalibration()
+        }
+
+        Button{
+            text: qsTr("Stop Eye Calibration")
+            onClicked: root.stopEyeCalibration()
         }
 
     }
@@ -165,8 +170,12 @@ ApplicationWindow {
         grpcClient.logout(_empty, userResponse, errorCallback)
     }
 
-    function eyeCalibration() {
-        grpcClient.eyeCalibration(_empty, _empty, errorCallback)
+    function startEyeCalibration() {
+        grpcClient.startEyeCalibration(_empty, _empty, errorCallback)
+    }
+
+    function stopEyeCalibration() {
+        grpcClient.stopEyeCalibration(_empty, _empty, errorCallback)
     }
 
     DoctorConsoleServiceClient {

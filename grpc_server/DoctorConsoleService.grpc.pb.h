@@ -56,12 +56,19 @@ class DoctorConsoleService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> PrepareAsyncgetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>>(PrepareAsyncgetUserRaw(context, request, cq));
     }
-    virtual ::grpc::Status eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsynceyeCalibrationRaw(context, request, cq));
+    virtual ::grpc::Status startEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsyncstartEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsyncstartEyeCalibrationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsynceyeCalibrationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsyncstartEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsyncstartEyeCalibrationRaw(context, request, cq));
+    }
+    virtual ::grpc::Status stopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> AsyncstopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(AsyncstopEyeCalibrationRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>> PrepareAsyncstopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>>(PrepareAsyncstopEyeCalibrationRaw(context, request, cq));
     }
     virtual ::grpc::Status login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>> Asynclogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
@@ -86,8 +93,10 @@ class DoctorConsoleService final {
       virtual void setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
       virtual void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void startEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void startEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void stopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void stopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
       virtual void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) = 0;
@@ -103,8 +112,10 @@ class DoctorConsoleService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsyncstartEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncstartEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* AsyncstopEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::Empty>* PrepareAsyncstopEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* PrepareAsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::doctor_console::User>* AsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) = 0;
@@ -134,12 +145,19 @@ class DoctorConsoleService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> PrepareAsyncgetUser(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>>(PrepareAsyncgetUserRaw(context, request, cq));
     }
-    ::grpc::Status eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsynceyeCalibrationRaw(context, request, cq));
+    ::grpc::Status startEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsyncstartEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsyncstartEyeCalibrationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsynceyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsynceyeCalibrationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsyncstartEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsyncstartEyeCalibrationRaw(context, request, cq));
+    }
+    ::grpc::Status stopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::doctor_console::Empty* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> AsyncstopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(AsyncstopEyeCalibrationRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>> PrepareAsyncstopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>>(PrepareAsyncstopEyeCalibrationRaw(context, request, cq));
     }
     ::grpc::Status login(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::doctor_console::User* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::doctor_console::User>> Asynclogin(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) {
@@ -164,8 +182,10 @@ class DoctorConsoleService final {
       void setSettings(::grpc::ClientContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
       void getUser(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
-      void eyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void startEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
+      void startEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void stopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, std::function<void(::grpc::Status)>) override;
+      void stopEyeCalibration(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response, ::grpc::ClientUnaryReactor* reactor) override;
       void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
       void login(::grpc::ClientContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response, ::grpc::ClientUnaryReactor* reactor) override;
       void logout(::grpc::ClientContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response, std::function<void(::grpc::Status)>) override;
@@ -187,8 +207,10 @@ class DoctorConsoleService final {
     ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncsetSettingsRaw(::grpc::ClientContext* context, const ::doctor_console::Settings& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsyncgetUserRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsynceyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsyncstartEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncstartEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* AsyncstopEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::doctor_console::Empty>* PrepareAsyncstopEyeCalibrationRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* PrepareAsyncloginRaw(::grpc::ClientContext* context, const ::doctor_console::Credentials& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::doctor_console::User>* AsynclogoutRaw(::grpc::ClientContext* context, const ::doctor_console::Empty& request, ::grpc::CompletionQueue* cq) override;
@@ -196,7 +218,8 @@ class DoctorConsoleService final {
     const ::grpc::internal::RpcMethod rpcmethod_getSettings_;
     const ::grpc::internal::RpcMethod rpcmethod_setSettings_;
     const ::grpc::internal::RpcMethod rpcmethod_getUser_;
-    const ::grpc::internal::RpcMethod rpcmethod_eyeCalibration_;
+    const ::grpc::internal::RpcMethod rpcmethod_startEyeCalibration_;
+    const ::grpc::internal::RpcMethod rpcmethod_stopEyeCalibration_;
     const ::grpc::internal::RpcMethod rpcmethod_login_;
     const ::grpc::internal::RpcMethod rpcmethod_logout_;
   };
@@ -209,7 +232,8 @@ class DoctorConsoleService final {
     virtual ::grpc::Status getSettings(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Settings* response);
     virtual ::grpc::Status setSettings(::grpc::ServerContext* context, const ::doctor_console::Settings* request, ::doctor_console::Empty* response);
     virtual ::grpc::Status getUser(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response);
-    virtual ::grpc::Status eyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response);
+    virtual ::grpc::Status startEyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response);
+    virtual ::grpc::Status stopEyeCalibration(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response);
     virtual ::grpc::Status login(::grpc::ServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response);
     virtual ::grpc::Status logout(::grpc::ServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response);
   };
@@ -274,23 +298,43 @@ class DoctorConsoleService final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_eyeCalibration : public BaseClass {
+  class WithAsyncMethod_startEyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_eyeCalibration() {
+    WithAsyncMethod_startEyeCalibration() {
       ::grpc::Service::MarkMethodAsync(3);
     }
-    ~WithAsyncMethod_eyeCalibration() override {
+    ~WithAsyncMethod_startEyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status startEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequesteyeCalibration(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequeststartEyeCalibration(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_stopEyeCalibration : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_stopEyeCalibration() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_stopEyeCalibration() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status stopEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequeststopEyeCalibration(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::Empty>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -299,7 +343,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_login() {
-      ::grpc::Service::MarkMethodAsync(4);
+      ::grpc::Service::MarkMethodAsync(5);
     }
     ~WithAsyncMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
@@ -310,7 +354,7 @@ class DoctorConsoleService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestlogin(::grpc::ServerContext* context, ::doctor_console::Credentials* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -319,7 +363,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_logout() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(6);
     }
     ~WithAsyncMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
@@ -330,10 +374,10 @@ class DoctorConsoleService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestlogout(::grpc::ServerContext* context, ::doctor_console::Empty* request, ::grpc::ServerAsyncResponseWriter< ::doctor_console::User>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_getSettings<WithAsyncMethod_setSettings<WithAsyncMethod_getUser<WithAsyncMethod_eyeCalibration<WithAsyncMethod_login<WithAsyncMethod_logout<Service > > > > > > AsyncService;
+  typedef WithAsyncMethod_getSettings<WithAsyncMethod_setSettings<WithAsyncMethod_getUser<WithAsyncMethod_startEyeCalibration<WithAsyncMethod_stopEyeCalibration<WithAsyncMethod_login<WithAsyncMethod_logout<Service > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_getSettings : public BaseClass {
    private:
@@ -416,30 +460,57 @@ class DoctorConsoleService final {
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_eyeCalibration : public BaseClass {
+  class WithCallbackMethod_startEyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_eyeCalibration() {
+    WithCallbackMethod_startEyeCalibration() {
       ::grpc::Service::MarkMethodCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) { return this->eyeCalibration(context, request, response); }));}
-    void SetMessageAllocatorFor_eyeCalibration(
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) { return this->startEyeCalibration(context, request, response); }));}
+    void SetMessageAllocatorFor_startEyeCalibration(
         ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::Empty>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_eyeCalibration() override {
+    ~WithCallbackMethod_startEyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status startEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* eyeCalibration(
+    virtual ::grpc::ServerUnaryReactor* startEyeCalibration(
+      ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_stopEyeCalibration : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_stopEyeCalibration() {
+      ::grpc::Service::MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::Empty* response) { return this->stopEyeCalibration(context, request, response); }));}
+    void SetMessageAllocatorFor_stopEyeCalibration(
+        ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::Empty>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::Empty>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_stopEyeCalibration() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status stopEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* stopEyeCalibration(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -448,13 +519,13 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_login() {
-      ::grpc::Service::MarkMethodCallback(4,
+      ::grpc::Service::MarkMethodCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Credentials, ::doctor_console::User>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::doctor_console::Credentials* request, ::doctor_console::User* response) { return this->login(context, request, response); }));}
     void SetMessageAllocatorFor_login(
         ::grpc::MessageAllocator< ::doctor_console::Credentials, ::doctor_console::User>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Credentials, ::doctor_console::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -475,13 +546,13 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_logout() {
-      ::grpc::Service::MarkMethodCallback(5,
+      ::grpc::Service::MarkMethodCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::User>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::doctor_console::Empty* request, ::doctor_console::User* response) { return this->logout(context, request, response); }));}
     void SetMessageAllocatorFor_logout(
         ::grpc::MessageAllocator< ::doctor_console::Empty, ::doctor_console::User>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::doctor_console::Empty, ::doctor_console::User>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -496,7 +567,7 @@ class DoctorConsoleService final {
     virtual ::grpc::ServerUnaryReactor* logout(
       ::grpc::CallbackServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::User* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_getSettings<WithCallbackMethod_setSettings<WithCallbackMethod_getUser<WithCallbackMethod_eyeCalibration<WithCallbackMethod_login<WithCallbackMethod_logout<Service > > > > > > CallbackService;
+  typedef WithCallbackMethod_getSettings<WithCallbackMethod_setSettings<WithCallbackMethod_getUser<WithCallbackMethod_startEyeCalibration<WithCallbackMethod_stopEyeCalibration<WithCallbackMethod_login<WithCallbackMethod_logout<Service > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_getSettings : public BaseClass {
@@ -550,18 +621,35 @@ class DoctorConsoleService final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_eyeCalibration : public BaseClass {
+  class WithGenericMethod_startEyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_eyeCalibration() {
+    WithGenericMethod_startEyeCalibration() {
       ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithGenericMethod_eyeCalibration() override {
+    ~WithGenericMethod_startEyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status startEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_stopEyeCalibration : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_stopEyeCalibration() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_stopEyeCalibration() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status stopEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -572,7 +660,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_login() {
-      ::grpc::Service::MarkMethodGeneric(4);
+      ::grpc::Service::MarkMethodGeneric(5);
     }
     ~WithGenericMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
@@ -589,7 +677,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_logout() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(6);
     }
     ~WithGenericMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
@@ -661,23 +749,43 @@ class DoctorConsoleService final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_eyeCalibration : public BaseClass {
+  class WithRawMethod_startEyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_eyeCalibration() {
+    WithRawMethod_startEyeCalibration() {
       ::grpc::Service::MarkMethodRaw(3);
     }
-    ~WithRawMethod_eyeCalibration() override {
+    ~WithRawMethod_startEyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status startEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequesteyeCalibration(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequeststartEyeCalibration(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_stopEyeCalibration : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_stopEyeCalibration() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_stopEyeCalibration() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status stopEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequeststopEyeCalibration(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -686,7 +794,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_login() {
-      ::grpc::Service::MarkMethodRaw(4);
+      ::grpc::Service::MarkMethodRaw(5);
     }
     ~WithRawMethod_login() override {
       BaseClassMustBeDerivedFromService(this);
@@ -697,7 +805,7 @@ class DoctorConsoleService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestlogin(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -706,7 +814,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_logout() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(6);
     }
     ~WithRawMethod_logout() override {
       BaseClassMustBeDerivedFromService(this);
@@ -717,7 +825,7 @@ class DoctorConsoleService final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void Requestlogout(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -787,25 +895,47 @@ class DoctorConsoleService final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_eyeCalibration : public BaseClass {
+  class WithRawCallbackMethod_startEyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_eyeCalibration() {
+    WithRawCallbackMethod_startEyeCalibration() {
       ::grpc::Service::MarkMethodRawCallback(3,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->eyeCalibration(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->startEyeCalibration(context, request, response); }));
     }
-    ~WithRawCallbackMethod_eyeCalibration() override {
+    ~WithRawCallbackMethod_startEyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status startEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* eyeCalibration(
+    virtual ::grpc::ServerUnaryReactor* startEyeCalibration(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_stopEyeCalibration : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_stopEyeCalibration() {
+      ::grpc::Service::MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->stopEyeCalibration(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_stopEyeCalibration() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status stopEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* stopEyeCalibration(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -814,7 +944,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_login() {
-      ::grpc::Service::MarkMethodRawCallback(4,
+      ::grpc::Service::MarkMethodRawCallback(5,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->login(context, request, response); }));
@@ -836,7 +966,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_logout() {
-      ::grpc::Service::MarkMethodRawCallback(5,
+      ::grpc::Service::MarkMethodRawCallback(6,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->logout(context, request, response); }));
@@ -934,31 +1064,58 @@ class DoctorConsoleService final {
     virtual ::grpc::Status StreamedgetUser(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::User>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_eyeCalibration : public BaseClass {
+  class WithStreamedUnaryMethod_startEyeCalibration : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_eyeCalibration() {
+    WithStreamedUnaryMethod_startEyeCalibration() {
       ::grpc::Service::MarkMethodStreamed(3,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Empty, ::doctor_console::Empty>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
                      ::doctor_console::Empty, ::doctor_console::Empty>* streamer) {
-                       return this->StreamedeyeCalibration(context,
+                       return this->StreamedstartEyeCalibration(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_eyeCalibration() override {
+    ~WithStreamedUnaryMethod_startEyeCalibration() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status eyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+    ::grpc::Status startEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedeyeCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Empty>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedstartEyeCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Empty>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_stopEyeCalibration : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_stopEyeCalibration() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::doctor_console::Empty, ::doctor_console::Empty>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::doctor_console::Empty, ::doctor_console::Empty>* streamer) {
+                       return this->StreamedstopEyeCalibration(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_stopEyeCalibration() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status stopEyeCalibration(::grpc::ServerContext* /*context*/, const ::doctor_console::Empty* /*request*/, ::doctor_console::Empty* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedstopEyeCalibration(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::Empty>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_login : public BaseClass {
@@ -966,7 +1123,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_login() {
-      ::grpc::Service::MarkMethodStreamed(4,
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Credentials, ::doctor_console::User>(
             [this](::grpc::ServerContext* context,
@@ -993,7 +1150,7 @@ class DoctorConsoleService final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_logout() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(6,
         new ::grpc::internal::StreamedUnaryHandler<
           ::doctor_console::Empty, ::doctor_console::User>(
             [this](::grpc::ServerContext* context,
@@ -1014,9 +1171,9 @@ class DoctorConsoleService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status Streamedlogout(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::doctor_console::Empty,::doctor_console::User>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_getSettings<WithStreamedUnaryMethod_setSettings<WithStreamedUnaryMethod_getUser<WithStreamedUnaryMethod_eyeCalibration<WithStreamedUnaryMethod_login<WithStreamedUnaryMethod_logout<Service > > > > > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_getSettings<WithStreamedUnaryMethod_setSettings<WithStreamedUnaryMethod_getUser<WithStreamedUnaryMethod_startEyeCalibration<WithStreamedUnaryMethod_stopEyeCalibration<WithStreamedUnaryMethod_login<WithStreamedUnaryMethod_logout<Service > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_getSettings<WithStreamedUnaryMethod_setSettings<WithStreamedUnaryMethod_getUser<WithStreamedUnaryMethod_eyeCalibration<WithStreamedUnaryMethod_login<WithStreamedUnaryMethod_logout<Service > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_getSettings<WithStreamedUnaryMethod_setSettings<WithStreamedUnaryMethod_getUser<WithStreamedUnaryMethod_startEyeCalibration<WithStreamedUnaryMethod_stopEyeCalibration<WithStreamedUnaryMethod_login<WithStreamedUnaryMethod_logout<Service > > > > > > > StreamedService;
 };
 
 }  // namespace doctor_console

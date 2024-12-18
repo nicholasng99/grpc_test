@@ -15,7 +15,8 @@ private:
     grpc::Status getSettings(grpc::ServerContext *, const Empty *request, Settings *response) override;
     grpc::Status setSettings(grpc::ServerContext *, const Settings *request, Empty *response) override;
     grpc::Status getUser(grpc::ServerContext *, const Empty *request, User *response) override;
-    grpc::Status eyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response) override;
+    grpc::Status startEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response) override;
+    grpc::Status stopEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response) override;
     grpc::Status login(grpc::ServerContext *, const Credentials *request, User *response) override;
     grpc::Status logout(grpc::ServerContext *, const Empty *request, User *response) override;
 
