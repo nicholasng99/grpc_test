@@ -4,10 +4,31 @@ package doctor_console;
 
 message Empty {}
 
+message ClientToken {
+  string uuid = 1;
+}
+
 message Settings {
-  optional string language = 1;
-  optional string theme = 2;
-  optional bool eye_control_enabled = 3;
+  optional ClientToken token = 1;
+  optional string language = 2;
+  optional string theme = 3;
+  optional bool eye_control_enabled = 4;
+}
+
+message Status {
+  enum State {
+    NORMAL = 0;
+    EYE_CALIBRATION = 1;
+  }
+  
+  optional ClientToken token = 1;
+  State state = 2;
+}
+
+message Credentials {
+  ClientToken token = 1;
+  string username = 2;
+  string password = 3;
 }
 
 message User {
@@ -16,17 +37,21 @@ message User {
   string name = 3;
 }
 
-message Credentials {
-  string username = 1;
-  string password = 2;
+message Changes {
+  optional User user = 1;
+  optional Settings settings = 2;
+  optional Status status = 3;
+  optional string message = 4;
 }
 
 service DoctorConsoleService {
+  rpc registerMe(Empty) returns (ClientToken);
   rpc getSettings(Empty) returns (Settings);
   rpc setSettings(Settings) returns (Empty);
   rpc getUser(Empty) returns (User);
-  rpc startEyeCalibration(Empty) returns (Empty);
-  rpc stopEyeCalibration(Empty) returns (Empty);
+  rpc getStatus(Empty) returns (Status);
+  rpc setStatus(Status) returns (Empty);
   rpc login(Credentials) returns (User);
-  rpc logout(Empty) returns (User);
+  rpc logout(ClientToken) returns (User);
+  rpc subscribe(ClientToken) returns (stream Changes);
 }

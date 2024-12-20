@@ -9,7 +9,7 @@ import doctor_console
 ApplicationWindow {
     id: root
     width: 350
-    height: 850
+    height: 950
 
     minimumWidth: width
     minimumHeight: height
@@ -19,9 +19,17 @@ ApplicationWindow {
     Material.theme: Material.Light
 
     property empty _empty
+    property clientToken _clientToken
     property settings _settings
     property user _user
     property credentials _credentials
+    property changes _changes
+
+    property var clientTokenResponse: function (value) {
+        console.timeEnd("getCT")
+        _clientToken = value
+        console.log("registered: ", _clientToken)
+    }
 
     property var settingResponse: function (value) {
         console.timeEnd("getS")
@@ -39,13 +47,27 @@ ApplicationWindow {
         name.text = _user.name
     }
 
-    property var errorCallback: function () {
-        console.log("Error can be handled also here");
+    property var changeResponse: function (value) {
+        _changes = value
+        console.log(_changes.settings)
+    }
+
+    property var finishResponse: function (value) {
+        console.log("finished: ", value)
+    }
+
+    property var errorCallback: function (e) {
+        console.log("Error: ", e);
     }
 
     ColumnLayout {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 10
+
+        Text {
+            text: qsTr("UUID: ") + _clientToken.uuid
+            font.bold: true
+        }
 
         Text {
             text: qsTr("Settings")
@@ -138,10 +160,16 @@ ApplicationWindow {
             onClicked: root.stopEyeCalibration()
         }
 
+        Button{
+            text: qsTr("Subscribe")
+            onClicked: root.subscribe()
+        }
+
     }
 
     function setSettings() {
         console.log("Set")
+        _settings.token = _clientToken
         _settings.theme = theme.text
         _settings.language = language.text
         _settings.eyeControlEnabled = eyeControl.checked
@@ -162,20 +190,25 @@ ApplicationWindow {
 
     function login() {
         console.time("getU")
+        _credentials.token = _clientToken
         grpcClient.login(_credentials, userResponse, errorCallback)
     }
 
     function logout() {
         console.time("getU")
-        grpcClient.logout(_empty, userResponse, errorCallback)
+        grpcClient.logout(_clientToken, userResponse, errorCallback)
     }
 
     function startEyeCalibration() {
-        grpcClient.startEyeCalibration(_empty, _empty, errorCallback)
+        grpcClient.startEyeCalibration(_clientToken, _empty, errorCallback)
     }
 
     function stopEyeCalibration() {
-        grpcClient.stopEyeCalibration(_empty, _empty, errorCallback)
+        grpcClient.stopEyeCalibration(_clientToken, _empty, errorCallback)
+    }
+
+    function subscribe() {
+        grpcClient.subscribe(_clientToken, changeResponse, finishResponse, errorCallback)
     }
 
     DoctorConsoleServiceClient {
@@ -187,5 +220,10 @@ ApplicationWindow {
         id: grpcChannel
         hostUri: "http://localhost:50051"
         options: GrpcChannelOptions {}
+    }
+
+    Component.onCompleted: {
+        console.time("getCT")
+        grpcClient.registerMe(_empty, clientTokenResponse, errorCallback)
     }
 }

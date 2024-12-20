@@ -3,8 +3,9 @@
 using namespace grpc;
 
 DoctorConsoleBackend::DoctorConsoleBackend()
-    : m_settings(Settings()),
-      m_user(User())
+    : m_settings(dc::Settings()),
+      m_user(dc::User()),
+      m_status(dc::Status())
 {
     m_settings.set_language("English");
     m_settings.set_theme("Dark");
@@ -13,53 +14,92 @@ DoctorConsoleBackend::DoctorConsoleBackend()
     m_user.set_authenticated(false);
     m_user.set_id_string("-1");
     m_user.set_name("");
+
+    m_status.set_state(dc::Status_State::Status_State_NORMAL);
 }
 
-Status DoctorConsoleBackend::getSettings(grpc::ServerContext *, const Empty *request, Settings *response)
+Status DoctorConsoleBackend::registerMe(ServerContext *, const dc::Empty *request, dc::ClientToken *response)
 {
-    std::shared_lock<std::shared_mutex> lock(m_settingsMutex);
+    static int counter = 0;
+    const std::string uuid = std::to_string(counter++);
+    std::cout << "client registered: " << uuid << std::endl;
+    m_clientIds.insert(uuid);
+    response->set_uuid(uuid);
+    return Status();
+}
+
+Status DoctorConsoleBackend::getSettings(ServerContext *, const dc::Empty *request, dc::Settings *response)
+{
     std::cout << "get Settings" << std::endl;
+    std::shared_lock<std::shared_mutex> lock(m_settingsMutex);
     *response = m_settings;
     return Status();
 }
 
-Status DoctorConsoleBackend::setSettings(grpc::ServerContext *, const Settings *request, Empty *response)
+Status DoctorConsoleBackend::setSettings(ServerContext *, const dc::Settings *request, dc::Empty *response)
 {
+    if (!request->has_token())
+        return Status(StatusCode::INVALID_ARGUMENT, "Set settings requires ClientToken");
+    if (m_clientIds.count(request->token().uuid()) < 1)
+        return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
+    std::cout << request->DebugString() << std::endl;
+    std::cout << "set Settings from: " << request->token().uuid() << std::endl;
     std::unique_lock<std::shared_mutex> lock(m_settingsMutex);
-    std::cout << "set Settings" << std::endl;
     if (request->has_language())
         m_settings.set_language(request->language());
     if (request->has_theme())
         m_settings.set_theme(request->theme());
     if (request->has_eye_control_enabled())
         m_settings.set_eye_control_enabled(request->eye_control_enabled());
+
+    for (auto [uuid, writer] : m_subscriptions)
+    {
+        if (uuid == request->token().uuid())
+            continue;
+        dc::Changes change;
+        dc::Settings *settings = new dc::Settings(*request);
+        change.set_allocated_settings(settings);
+        writer->Write(change);
+    }
     return Status();
 }
 
-Status DoctorConsoleBackend::getUser(grpc::ServerContext *, const Empty *request, User *response)
+Status DoctorConsoleBackend::getUser(ServerContext *, const dc::Empty *request, dc::User *response)
 {
-    std::shared_lock<std::shared_mutex> lock(m_userMutex);
     std::cout << "get User" << std::endl;
+    std::shared_lock<std::shared_mutex> lock(m_userMutex);
     *response = m_user;
     return Status();
 }
 
-Status DoctorConsoleBackend::startEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
+Status DoctorConsoleBackend::getStatus(ServerContext *, const dc::Empty *request, dc::Status *response)
 {
-    std::cout << "Start eye calibration called!" << std::endl;
+    std::cout << "get User" << std::endl;
+    std::shared_lock<std::shared_mutex> lock(m_statusMutex);
+    *response = m_status;
     return Status();
 }
 
-Status DoctorConsoleBackend::stopEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response)
+Status DoctorConsoleBackend::setStatus(ServerContext *, const dc::Status *request, dc::Empty *response)
 {
-    std::cout << "Stop eye calibration called!" << std::endl;
+    if (!request->has_token())
+        return Status(StatusCode::INVALID_ARGUMENT, "Set settings requires ClientToken");
+    if (m_clientIds.count(request->token().uuid()) < 1)
+        return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
+
+    std::cout << "State set from: " << request->token().uuid() << std::endl;
+    m_status.set_state(request->state());
+    // TODO: update changes to other clients
     return Status();
 }
 
-Status DoctorConsoleBackend::login(grpc::ServerContext *, const Credentials *request, User *response)
+Status DoctorConsoleBackend::login(ServerContext *, const dc::Credentials *request, dc::User *response)
 {
+    if (m_clientIds.count(request->token().uuid()) < 1)
+        return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
+
+    std::cout << "Login attempt: " << request->username() << " - " << request->password() << " from: " << request->token().uuid() << std::endl;
     std::unique_lock<std::shared_mutex> lock(m_userMutex);
-    std::cout << "Login attempt: " << request->username() << " - " << request->password() << std::endl;
     if (request->username() == "admin" && request->password() == "admin")
     {
         m_user.set_id_string("0");
@@ -68,16 +108,41 @@ Status DoctorConsoleBackend::login(grpc::ServerContext *, const Credentials *req
         *response = m_user;
         std::cout << "Admin logged in!" << std::endl;
     }
+    // TODO: update changes to other clients
     return Status();
 }
 
-Status DoctorConsoleBackend::logout(grpc::ServerContext *, const Empty *request, User *response)
+Status DoctorConsoleBackend::logout(ServerContext *, const dc::ClientToken *request, dc::User *response)
 {
+    if (m_clientIds.count(request->uuid()) < 1)
+        return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
+
+    std::cout << "Logout called from: " << request->uuid() << std::endl;
     std::unique_lock<std::shared_mutex> lock(m_userMutex);
-    std::cout << "Logout called!" << std::endl;
     m_user.set_authenticated(false);
     m_user.set_id_string("-1");
     m_user.set_name("");
     *response = m_user;
+    // TODO: update changes to other clients
+    return Status();
+}
+
+Status DoctorConsoleBackend::subscribe(ServerContext *context, const dc::ClientToken *request, ServerWriter<dc::Changes> *writer)
+{
+    if (m_clientIds.count(request->uuid()) < 1)
+        return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
+    if (m_subscriptions.count(request->uuid()))
+        return Status(StatusCode::ALREADY_EXISTS, "ClientToken already has an existing connection");
+
+    std::cout << "new subscription: " << request->uuid() << std::endl;
+    m_subscriptions[request->uuid()] = writer;
+
+    while (!context->IsCancelled())
+    {
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << "looping for " << request->uuid() << std::endl;
+    }
+
+    m_subscriptions.erase(request->uuid());
     return Status();
 }

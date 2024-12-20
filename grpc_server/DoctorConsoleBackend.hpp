@@ -4,25 +4,31 @@
 
 #include "DoctorConsoleService.grpc.pb.h"
 
-using namespace doctor_console;
+namespace dc = doctor_console;
 
-class DoctorConsoleBackend final : public DoctorConsoleService::Service
+class DoctorConsoleBackend final : public dc::DoctorConsoleService::Service
 {
 public:
     DoctorConsoleBackend();
 
 private:
-    grpc::Status getSettings(grpc::ServerContext *, const Empty *request, Settings *response) override;
-    grpc::Status setSettings(grpc::ServerContext *, const Settings *request, Empty *response) override;
-    grpc::Status getUser(grpc::ServerContext *, const Empty *request, User *response) override;
-    grpc::Status startEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response) override;
-    grpc::Status stopEyeCalibration(grpc::ServerContext *, const Empty *request, Empty *response) override;
-    grpc::Status login(grpc::ServerContext *, const Credentials *request, User *response) override;
-    grpc::Status logout(grpc::ServerContext *, const Empty *request, User *response) override;
+    grpc::Status registerMe(grpc::ServerContext *, const dc::Empty *request, dc::ClientToken *response) override;
+    grpc::Status getSettings(grpc::ServerContext *, const dc::Empty *request, dc::Settings *response) override;
+    grpc::Status setSettings(grpc::ServerContext *, const dc::Settings *request, dc::Empty *response) override;
+    grpc::Status getUser(grpc::ServerContext *, const dc::Empty *request, dc::User *response) override;
+    grpc::Status getStatus(grpc::ServerContext *, const dc::Empty *request, dc::Status *response) override;
+    grpc::Status setStatus(grpc::ServerContext *, const dc::Status *request, dc::Empty *response) override;
+    grpc::Status login(grpc::ServerContext *, const dc::Credentials *request, dc::User *response) override;
+    grpc::Status logout(grpc::ServerContext *, const dc::ClientToken *request, dc::User *response) override;
+    grpc::Status subscribe(grpc::ServerContext *, const dc::ClientToken *request, grpc::ServerWriter<dc::Changes> *writer) override;
 
-    Settings m_settings;
-    User m_user;
+    dc::Settings m_settings;
+    dc::User m_user;
+    dc::Status m_status;
 
     std::shared_mutex m_settingsMutex;
     std::shared_mutex m_userMutex;
+    std::shared_mutex m_statusMutex;
+    std::unordered_set<std::string> m_clientIds;
+    std::map<std::string, grpc::ServerWriter<dc::Changes> *> m_subscriptions;
 };

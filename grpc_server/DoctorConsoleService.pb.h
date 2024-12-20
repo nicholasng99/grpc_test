@@ -29,6 +29,7 @@
 #include "google/protobuf/message_lite.h"
 #include "google/protobuf/repeated_field.h"  // IWYU pragma: export
 #include "google/protobuf/extension_set.h"  // IWYU pragma: export
+#include "google/protobuf/generated_enum_reflection.h"
 #include "google/protobuf/unknown_field_set.h"
 // @@protoc_insertion_point(includes)
 
@@ -53,6 +54,12 @@ struct TableStruct_DoctorConsoleService_2eproto {
 extern const ::google::protobuf::internal::DescriptorTable
     descriptor_table_DoctorConsoleService_2eproto;
 namespace doctor_console {
+class Changes;
+struct ChangesDefaultTypeInternal;
+extern ChangesDefaultTypeInternal _Changes_default_instance_;
+class ClientToken;
+struct ClientTokenDefaultTypeInternal;
+extern ClientTokenDefaultTypeInternal _ClientToken_default_instance_;
 class Credentials;
 struct CredentialsDefaultTypeInternal;
 extern CredentialsDefaultTypeInternal _Credentials_default_instance_;
@@ -62,6 +69,9 @@ extern EmptyDefaultTypeInternal _Empty_default_instance_;
 class Settings;
 struct SettingsDefaultTypeInternal;
 extern SettingsDefaultTypeInternal _Settings_default_instance_;
+class Status;
+struct StatusDefaultTypeInternal;
+extern StatusDefaultTypeInternal _Status_default_instance_;
 class User;
 struct UserDefaultTypeInternal;
 extern UserDefaultTypeInternal _User_default_instance_;
@@ -72,6 +82,39 @@ namespace protobuf {
 }  // namespace google
 
 namespace doctor_console {
+enum Status_State : int {
+  Status_State_NORMAL = 0,
+  Status_State_EYE_CALIBRATION = 1,
+  Status_State_Status_State_INT_MIN_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::min(),
+  Status_State_Status_State_INT_MAX_SENTINEL_DO_NOT_USE_ =
+      std::numeric_limits<::int32_t>::max(),
+};
+
+bool Status_State_IsValid(int value);
+extern const uint32_t Status_State_internal_data_[];
+constexpr Status_State Status_State_State_MIN = static_cast<Status_State>(0);
+constexpr Status_State Status_State_State_MAX = static_cast<Status_State>(1);
+constexpr int Status_State_State_ARRAYSIZE = 1 + 1;
+const ::google::protobuf::EnumDescriptor*
+Status_State_descriptor();
+template <typename T>
+const std::string& Status_State_Name(T value) {
+  static_assert(std::is_same<T, Status_State>::value ||
+                    std::is_integral<T>::value,
+                "Incorrect type passed to State_Name().");
+  return Status_State_Name(static_cast<Status_State>(value));
+}
+template <>
+inline const std::string& Status_State_Name(Status_State value) {
+  return ::google::protobuf::internal::NameOfDenseEnum<Status_State_descriptor,
+                                                 0, 1>(
+      static_cast<int>(value));
+}
+inline bool Status_State_Parse(absl::string_view name, Status_State* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Status_State>(
+      Status_State_descriptor(), name, value);
+}
 
 // ===================================================================
 
@@ -138,7 +181,7 @@ class User final
     return reinterpret_cast<const User*>(
         &_User_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 2;
+  static constexpr int kIndexInFileMessages = 5;
   friend void swap(User& a, User& b) { a.Swap(&b); }
   inline void Swap(User* other) {
     if (other == this) return;
@@ -305,237 +348,6 @@ class User final
 };
 // -------------------------------------------------------------------
 
-class Settings final
-    : public ::google::protobuf::Message
-/* @@protoc_insertion_point(class_definition:doctor_console.Settings) */ {
- public:
-  inline Settings() : Settings(nullptr) {}
-  ~Settings() PROTOBUF_FINAL;
-
-#if defined(PROTOBUF_CUSTOM_VTABLE)
-  void operator delete(Settings* msg, std::destroying_delete_t) {
-    SharedDtor(*msg);
-    ::google::protobuf::internal::SizedDelete(msg, sizeof(Settings));
-  }
-#endif
-
-  template <typename = void>
-  explicit PROTOBUF_CONSTEXPR Settings(
-      ::google::protobuf::internal::ConstantInitialized);
-
-  inline Settings(const Settings& from) : Settings(nullptr, from) {}
-  inline Settings(Settings&& from) noexcept
-      : Settings(nullptr, std::move(from)) {}
-  inline Settings& operator=(const Settings& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline Settings& operator=(Settings&& from) noexcept {
-    if (this == &from) return *this;
-    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
-  }
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
-      ABSL_ATTRIBUTE_LIFETIME_BOUND {
-    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::google::protobuf::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::google::protobuf::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const Settings& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const Settings* internal_default_instance() {
-    return reinterpret_cast<const Settings*>(
-        &_Settings_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages = 1;
-  friend void swap(Settings& a, Settings& b) { a.Swap(&b); }
-  inline void Swap(Settings* other) {
-    if (other == this) return;
-    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
-      InternalSwap(other);
-    } else {
-      ::google::protobuf::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(Settings* other) {
-    if (other == this) return;
-    ABSL_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  Settings* New(::google::protobuf::Arena* arena = nullptr) const {
-    return ::google::protobuf::Message::DefaultConstruct<Settings>(arena);
-  }
-  using ::google::protobuf::Message::CopyFrom;
-  void CopyFrom(const Settings& from);
-  using ::google::protobuf::Message::MergeFrom;
-  void MergeFrom(const Settings& from) { Settings::MergeImpl(*this, from); }
-
-  private:
-  static void MergeImpl(
-      ::google::protobuf::MessageLite& to_msg,
-      const ::google::protobuf::MessageLite& from_msg);
-
-  public:
-  bool IsInitialized() const {
-    return true;
-  }
-  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
-  #if defined(PROTOBUF_CUSTOM_VTABLE)
-  private:
-  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
-  static ::uint8_t* _InternalSerialize(
-      const MessageLite& msg, ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream);
-
-  public:
-  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
-    return _InternalSerialize(*this, target, stream);
-  }
-  #else   // PROTOBUF_CUSTOM_VTABLE
-  ::size_t ByteSizeLong() const final;
-  ::uint8_t* _InternalSerialize(
-      ::uint8_t* target,
-      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
-  #endif  // PROTOBUF_CUSTOM_VTABLE
-  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::google::protobuf::Arena* arena);
-  static void SharedDtor(MessageLite& self);
-  void InternalSwap(Settings* other);
- private:
-  template <typename T>
-  friend ::absl::string_view(
-      ::google::protobuf::internal::GetAnyMessageName)();
-  static ::absl::string_view FullMessageName() { return "doctor_console.Settings"; }
-
- protected:
-  explicit Settings(::google::protobuf::Arena* arena);
-  Settings(::google::protobuf::Arena* arena, const Settings& from);
-  Settings(::google::protobuf::Arena* arena, Settings&& from) noexcept
-      : Settings(arena) {
-    *this = ::std::move(from);
-  }
-  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
-  static void* PlacementNew_(const void*, void* mem,
-                             ::google::protobuf::Arena* arena);
-  static constexpr auto InternalNewImpl_();
-  static const ::google::protobuf::internal::ClassDataFull _class_data_;
-
- public:
-  ::google::protobuf::Metadata GetMetadata() const;
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-  enum : int {
-    kLanguageFieldNumber = 1,
-    kThemeFieldNumber = 2,
-    kEyeControlEnabledFieldNumber = 3,
-  };
-  // optional string language = 1;
-  bool has_language() const;
-  void clear_language() ;
-  const std::string& language() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_language(Arg_&& arg, Args_... args);
-  std::string* mutable_language();
-  PROTOBUF_NODISCARD std::string* release_language();
-  void set_allocated_language(std::string* value);
-
-  private:
-  const std::string& _internal_language() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_language(
-      const std::string& value);
-  std::string* _internal_mutable_language();
-
-  public:
-  // optional string theme = 2;
-  bool has_theme() const;
-  void clear_theme() ;
-  const std::string& theme() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_theme(Arg_&& arg, Args_... args);
-  std::string* mutable_theme();
-  PROTOBUF_NODISCARD std::string* release_theme();
-  void set_allocated_theme(std::string* value);
-
-  private:
-  const std::string& _internal_theme() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_theme(
-      const std::string& value);
-  std::string* _internal_mutable_theme();
-
-  public:
-  // optional bool eye_control_enabled = 3;
-  bool has_eye_control_enabled() const;
-  void clear_eye_control_enabled() ;
-  bool eye_control_enabled() const;
-  void set_eye_control_enabled(bool value);
-
-  private:
-  bool _internal_eye_control_enabled() const;
-  void _internal_set_eye_control_enabled(bool value);
-
-  public:
-  // @@protoc_insertion_point(class_scope:doctor_console.Settings)
- private:
-  class _Internal;
-  friend class ::google::protobuf::internal::TcParser;
-  static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      45, 2>
-      _table_;
-
-  friend class ::google::protobuf::MessageLite;
-  friend class ::google::protobuf::Arena;
-  template <typename T>
-  friend class ::google::protobuf::Arena::InternalHelper;
-  using InternalArenaConstructable_ = void;
-  using DestructorSkippable_ = void;
-  struct Impl_ {
-    inline explicit constexpr Impl_(
-        ::google::protobuf::internal::ConstantInitialized) noexcept;
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena);
-    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
-                          ::google::protobuf::Arena* arena, const Impl_& from,
-                          const Settings& from_msg);
-    ::google::protobuf::internal::HasBits<1> _has_bits_;
-    ::google::protobuf::internal::CachedSize _cached_size_;
-    ::google::protobuf::internal::ArenaStringPtr language_;
-    ::google::protobuf::internal::ArenaStringPtr theme_;
-    bool eye_control_enabled_;
-    PROTOBUF_TSAN_DECLARE_MEMBER
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_DoctorConsoleService_2eproto;
-};
-// -------------------------------------------------------------------
-
 class Empty final
     : public ::google::protobuf::internal::ZeroFieldsBase
 /* @@protoc_insertion_point(class_definition:doctor_console.Empty) */ {
@@ -682,6 +494,679 @@ class Empty final
 };
 // -------------------------------------------------------------------
 
+class ClientToken final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:doctor_console.ClientToken) */ {
+ public:
+  inline ClientToken() : ClientToken(nullptr) {}
+  ~ClientToken() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(ClientToken* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(ClientToken));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR ClientToken(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline ClientToken(const ClientToken& from) : ClientToken(nullptr, from) {}
+  inline ClientToken(ClientToken&& from) noexcept
+      : ClientToken(nullptr, std::move(from)) {}
+  inline ClientToken& operator=(const ClientToken& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ClientToken& operator=(ClientToken&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const ClientToken& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const ClientToken* internal_default_instance() {
+    return reinterpret_cast<const ClientToken*>(
+        &_ClientToken_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 1;
+  friend void swap(ClientToken& a, ClientToken& b) { a.Swap(&b); }
+  inline void Swap(ClientToken* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(ClientToken* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  ClientToken* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<ClientToken>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const ClientToken& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const ClientToken& from) { ClientToken::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(ClientToken* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "doctor_console.ClientToken"; }
+
+ protected:
+  explicit ClientToken(::google::protobuf::Arena* arena);
+  ClientToken(::google::protobuf::Arena* arena, const ClientToken& from);
+  ClientToken(::google::protobuf::Arena* arena, ClientToken&& from) noexcept
+      : ClientToken(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kUuidFieldNumber = 1,
+  };
+  // string uuid = 1;
+  void clear_uuid() ;
+  const std::string& uuid() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_uuid(Arg_&& arg, Args_... args);
+  std::string* mutable_uuid();
+  PROTOBUF_NODISCARD std::string* release_uuid();
+  void set_allocated_uuid(std::string* value);
+
+  private:
+  const std::string& _internal_uuid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_uuid(
+      const std::string& value);
+  std::string* _internal_mutable_uuid();
+
+  public:
+  // @@protoc_insertion_point(class_scope:doctor_console.ClientToken)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      0, 1, 0,
+      39, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const ClientToken& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr uuid_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_DoctorConsoleService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Status final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:doctor_console.Status) */ {
+ public:
+  inline Status() : Status(nullptr) {}
+  ~Status() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(Status* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(Status));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Status(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Status(const Status& from) : Status(nullptr, from) {}
+  inline Status(Status&& from) noexcept
+      : Status(nullptr, std::move(from)) {}
+  inline Status& operator=(const Status& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Status& operator=(Status&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Status& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Status* internal_default_instance() {
+    return reinterpret_cast<const Status*>(
+        &_Status_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 3;
+  friend void swap(Status& a, Status& b) { a.Swap(&b); }
+  inline void Swap(Status* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Status* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Status* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<Status>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Status& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Status& from) { Status::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(Status* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "doctor_console.Status"; }
+
+ protected:
+  explicit Status(::google::protobuf::Arena* arena);
+  Status(::google::protobuf::Arena* arena, const Status& from);
+  Status(::google::protobuf::Arena* arena, Status&& from) noexcept
+      : Status(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+  using State = Status_State;
+  static constexpr State NORMAL = Status_State_NORMAL;
+  static constexpr State EYE_CALIBRATION = Status_State_EYE_CALIBRATION;
+  static inline bool State_IsValid(int value) {
+    return Status_State_IsValid(value);
+  }
+  static constexpr State State_MIN = Status_State_State_MIN;
+  static constexpr State State_MAX = Status_State_State_MAX;
+  static constexpr int State_ARRAYSIZE = Status_State_State_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor* State_descriptor() {
+    return Status_State_descriptor();
+  }
+  template <typename T>
+  static inline const std::string& State_Name(T value) {
+    return Status_State_Name(value);
+  }
+  static inline bool State_Parse(absl::string_view name, State* value) {
+    return Status_State_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kTokenFieldNumber = 1,
+    kStateFieldNumber = 2,
+  };
+  // optional .doctor_console.ClientToken token = 1;
+  bool has_token() const;
+  void clear_token() ;
+  const ::doctor_console::ClientToken& token() const;
+  PROTOBUF_NODISCARD ::doctor_console::ClientToken* release_token();
+  ::doctor_console::ClientToken* mutable_token();
+  void set_allocated_token(::doctor_console::ClientToken* value);
+  void unsafe_arena_set_allocated_token(::doctor_console::ClientToken* value);
+  ::doctor_console::ClientToken* unsafe_arena_release_token();
+
+  private:
+  const ::doctor_console::ClientToken& _internal_token() const;
+  ::doctor_console::ClientToken* _internal_mutable_token();
+
+  public:
+  // .doctor_console.Status.State state = 2;
+  void clear_state() ;
+  ::doctor_console::Status_State state() const;
+  void set_state(::doctor_console::Status_State value);
+
+  private:
+  ::doctor_console::Status_State _internal_state() const;
+  void _internal_set_state(::doctor_console::Status_State value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:doctor_console.Status)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 1,
+      0, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Status& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::doctor_console::ClientToken* token_;
+    int state_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_DoctorConsoleService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Settings final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:doctor_console.Settings) */ {
+ public:
+  inline Settings() : Settings(nullptr) {}
+  ~Settings() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(Settings* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(Settings));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Settings(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Settings(const Settings& from) : Settings(nullptr, from) {}
+  inline Settings(Settings&& from) noexcept
+      : Settings(nullptr, std::move(from)) {}
+  inline Settings& operator=(const Settings& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Settings& operator=(Settings&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Settings& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Settings* internal_default_instance() {
+    return reinterpret_cast<const Settings*>(
+        &_Settings_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 2;
+  friend void swap(Settings& a, Settings& b) { a.Swap(&b); }
+  inline void Swap(Settings* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Settings* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Settings* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<Settings>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Settings& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Settings& from) { Settings::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(Settings* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "doctor_console.Settings"; }
+
+ protected:
+  explicit Settings(::google::protobuf::Arena* arena);
+  Settings(::google::protobuf::Arena* arena, const Settings& from);
+  Settings(::google::protobuf::Arena* arena, Settings&& from) noexcept
+      : Settings(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kLanguageFieldNumber = 2,
+    kThemeFieldNumber = 3,
+    kTokenFieldNumber = 1,
+    kEyeControlEnabledFieldNumber = 4,
+  };
+  // optional string language = 2;
+  bool has_language() const;
+  void clear_language() ;
+  const std::string& language() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_language(Arg_&& arg, Args_... args);
+  std::string* mutable_language();
+  PROTOBUF_NODISCARD std::string* release_language();
+  void set_allocated_language(std::string* value);
+
+  private:
+  const std::string& _internal_language() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_language(
+      const std::string& value);
+  std::string* _internal_mutable_language();
+
+  public:
+  // optional string theme = 3;
+  bool has_theme() const;
+  void clear_theme() ;
+  const std::string& theme() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_theme(Arg_&& arg, Args_... args);
+  std::string* mutable_theme();
+  PROTOBUF_NODISCARD std::string* release_theme();
+  void set_allocated_theme(std::string* value);
+
+  private:
+  const std::string& _internal_theme() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_theme(
+      const std::string& value);
+  std::string* _internal_mutable_theme();
+
+  public:
+  // optional .doctor_console.ClientToken token = 1;
+  bool has_token() const;
+  void clear_token() ;
+  const ::doctor_console::ClientToken& token() const;
+  PROTOBUF_NODISCARD ::doctor_console::ClientToken* release_token();
+  ::doctor_console::ClientToken* mutable_token();
+  void set_allocated_token(::doctor_console::ClientToken* value);
+  void unsafe_arena_set_allocated_token(::doctor_console::ClientToken* value);
+  ::doctor_console::ClientToken* unsafe_arena_release_token();
+
+  private:
+  const ::doctor_console::ClientToken& _internal_token() const;
+  ::doctor_console::ClientToken* _internal_mutable_token();
+
+  public:
+  // optional bool eye_control_enabled = 4;
+  bool has_eye_control_enabled() const;
+  void clear_eye_control_enabled() ;
+  bool eye_control_enabled() const;
+  void set_eye_control_enabled(bool value);
+
+  private:
+  bool _internal_eye_control_enabled() const;
+  void _internal_set_eye_control_enabled(bool value);
+
+  public:
+  // @@protoc_insertion_point(class_scope:doctor_console.Settings)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 4, 1,
+      45, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Settings& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr language_;
+    ::google::protobuf::internal::ArenaStringPtr theme_;
+    ::doctor_console::ClientToken* token_;
+    bool eye_control_enabled_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_DoctorConsoleService_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Credentials final
     : public ::google::protobuf::Message
 /* @@protoc_insertion_point(class_definition:doctor_console.Credentials) */ {
@@ -742,7 +1227,7 @@ class Credentials final
     return reinterpret_cast<const Credentials*>(
         &_Credentials_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 3;
+  static constexpr int kIndexInFileMessages = 4;
   friend void swap(Credentials& a, Credentials& b) { a.Swap(&b); }
   inline void Swap(Credentials* other) {
     if (other == this) return;
@@ -829,10 +1314,11 @@ class Credentials final
 
   // accessors -------------------------------------------------------
   enum : int {
-    kUsernameFieldNumber = 1,
-    kPasswordFieldNumber = 2,
+    kUsernameFieldNumber = 2,
+    kPasswordFieldNumber = 3,
+    kTokenFieldNumber = 1,
   };
-  // string username = 1;
+  // string username = 2;
   void clear_username() ;
   const std::string& username() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -848,7 +1334,7 @@ class Credentials final
   std::string* _internal_mutable_username();
 
   public:
-  // string password = 2;
+  // string password = 3;
   void clear_password() ;
   const std::string& password() const;
   template <typename Arg_ = const std::string&, typename... Args_>
@@ -864,12 +1350,27 @@ class Credentials final
   std::string* _internal_mutable_password();
 
   public:
+  // .doctor_console.ClientToken token = 1;
+  bool has_token() const;
+  void clear_token() ;
+  const ::doctor_console::ClientToken& token() const;
+  PROTOBUF_NODISCARD ::doctor_console::ClientToken* release_token();
+  ::doctor_console::ClientToken* mutable_token();
+  void set_allocated_token(::doctor_console::ClientToken* value);
+  void unsafe_arena_set_allocated_token(::doctor_console::ClientToken* value);
+  ::doctor_console::ClientToken* unsafe_arena_release_token();
+
+  private:
+  const ::doctor_console::ClientToken& _internal_token() const;
+  ::doctor_console::ClientToken* _internal_mutable_token();
+
+  public:
   // @@protoc_insertion_point(class_scope:doctor_console.Credentials)
  private:
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
+      2, 3, 1,
       51, 2>
       _table_;
 
@@ -887,9 +1388,261 @@ class Credentials final
     inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const Credentials& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
+    ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr username_;
     ::google::protobuf::internal::ArenaStringPtr password_;
+    ::doctor_console::ClientToken* token_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_DoctorConsoleService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Changes final
+    : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:doctor_console.Changes) */ {
+ public:
+  inline Changes() : Changes(nullptr) {}
+  ~Changes() PROTOBUF_FINAL;
+
+#if defined(PROTOBUF_CUSTOM_VTABLE)
+  void operator delete(Changes* msg, std::destroying_delete_t) {
+    SharedDtor(*msg);
+    ::google::protobuf::internal::SizedDelete(msg, sizeof(Changes));
+  }
+#endif
+
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR Changes(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline Changes(const Changes& from) : Changes(nullptr, from) {}
+  inline Changes(Changes&& from) noexcept
+      : Changes(nullptr, std::move(from)) {}
+  inline Changes& operator=(const Changes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Changes& operator=(Changes&& from) noexcept {
+    if (this == &from) return *this;
+    if (::google::protobuf::internal::CanMoveWithInternalSwap(GetArena(), from.GetArena())) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Changes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Changes* internal_default_instance() {
+    return reinterpret_cast<const Changes*>(
+        &_Changes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 6;
+  friend void swap(Changes& a, Changes& b) { a.Swap(&b); }
+  inline void Swap(Changes* other) {
+    if (other == this) return;
+    if (::google::protobuf::internal::CanUseInternalSwap(GetArena(), other->GetArena())) {
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Changes* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Changes* New(::google::protobuf::Arena* arena = nullptr) const {
+    return ::google::protobuf::Message::DefaultConstruct<Changes>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const Changes& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const Changes& from) { Changes::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() PROTOBUF_FINAL;
+  #if defined(PROTOBUF_CUSTOM_VTABLE)
+  private:
+  static ::size_t ByteSizeLong(const ::google::protobuf::MessageLite& msg);
+  static ::uint8_t* _InternalSerialize(
+      const MessageLite& msg, ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream);
+
+  public:
+  ::size_t ByteSizeLong() const { return ByteSizeLong(*this); }
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const {
+    return _InternalSerialize(*this, target, stream);
+  }
+  #else   // PROTOBUF_CUSTOM_VTABLE
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  #endif  // PROTOBUF_CUSTOM_VTABLE
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  static void SharedDtor(MessageLite& self);
+  void InternalSwap(Changes* other);
+ private:
+  template <typename T>
+  friend ::absl::string_view(
+      ::google::protobuf::internal::GetAnyMessageName)();
+  static ::absl::string_view FullMessageName() { return "doctor_console.Changes"; }
+
+ protected:
+  explicit Changes(::google::protobuf::Arena* arena);
+  Changes(::google::protobuf::Arena* arena, const Changes& from);
+  Changes(::google::protobuf::Arena* arena, Changes&& from) noexcept
+      : Changes(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::internal::ClassData* GetClassData() const PROTOBUF_FINAL;
+  static void* PlacementNew_(const void*, void* mem,
+                             ::google::protobuf::Arena* arena);
+  static constexpr auto InternalNewImpl_();
+  static const ::google::protobuf::internal::ClassDataFull _class_data_;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kMessageFieldNumber = 4,
+    kUserFieldNumber = 1,
+    kSettingsFieldNumber = 2,
+    kStatusFieldNumber = 3,
+  };
+  // optional string message = 4;
+  bool has_message() const;
+  void clear_message() ;
+  const std::string& message() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_message(Arg_&& arg, Args_... args);
+  std::string* mutable_message();
+  PROTOBUF_NODISCARD std::string* release_message();
+  void set_allocated_message(std::string* value);
+
+  private:
+  const std::string& _internal_message() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(
+      const std::string& value);
+  std::string* _internal_mutable_message();
+
+  public:
+  // optional .doctor_console.User user = 1;
+  bool has_user() const;
+  void clear_user() ;
+  const ::doctor_console::User& user() const;
+  PROTOBUF_NODISCARD ::doctor_console::User* release_user();
+  ::doctor_console::User* mutable_user();
+  void set_allocated_user(::doctor_console::User* value);
+  void unsafe_arena_set_allocated_user(::doctor_console::User* value);
+  ::doctor_console::User* unsafe_arena_release_user();
+
+  private:
+  const ::doctor_console::User& _internal_user() const;
+  ::doctor_console::User* _internal_mutable_user();
+
+  public:
+  // optional .doctor_console.Settings settings = 2;
+  bool has_settings() const;
+  void clear_settings() ;
+  const ::doctor_console::Settings& settings() const;
+  PROTOBUF_NODISCARD ::doctor_console::Settings* release_settings();
+  ::doctor_console::Settings* mutable_settings();
+  void set_allocated_settings(::doctor_console::Settings* value);
+  void unsafe_arena_set_allocated_settings(::doctor_console::Settings* value);
+  ::doctor_console::Settings* unsafe_arena_release_settings();
+
+  private:
+  const ::doctor_console::Settings& _internal_settings() const;
+  ::doctor_console::Settings* _internal_mutable_settings();
+
+  public:
+  // optional .doctor_console.Status status = 3;
+  bool has_status() const;
+  void clear_status() ;
+  const ::doctor_console::Status& status() const;
+  PROTOBUF_NODISCARD ::doctor_console::Status* release_status();
+  ::doctor_console::Status* mutable_status();
+  void set_allocated_status(::doctor_console::Status* value);
+  void unsafe_arena_set_allocated_status(::doctor_console::Status* value);
+  ::doctor_console::Status* unsafe_arena_release_status();
+
+  private:
+  const ::doctor_console::Status& _internal_status() const;
+  ::doctor_console::Status* _internal_mutable_status();
+
+  public:
+  // @@protoc_insertion_point(class_scope:doctor_console.Changes)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      2, 4, 3,
+      38, 2>
+      _table_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const Changes& from_msg);
+    ::google::protobuf::internal::HasBits<1> _has_bits_;
     ::google::protobuf::internal::CachedSize _cached_size_;
+    ::google::protobuf::internal::ArenaStringPtr message_;
+    ::doctor_console::User* user_;
+    ::doctor_console::Settings* settings_;
+    ::doctor_console::Status* status_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
   union { Impl_ _impl_; };
@@ -914,9 +1667,157 @@ class Credentials final
 
 // -------------------------------------------------------------------
 
+// ClientToken
+
+// string uuid = 1;
+inline void ClientToken::clear_uuid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.uuid_.ClearToEmpty();
+}
+inline const std::string& ClientToken::uuid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.ClientToken.uuid)
+  return _internal_uuid();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void ClientToken::set_uuid(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.uuid_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:doctor_console.ClientToken.uuid)
+}
+inline std::string* ClientToken::mutable_uuid() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_uuid();
+  // @@protoc_insertion_point(field_mutable:doctor_console.ClientToken.uuid)
+  return _s;
+}
+inline const std::string& ClientToken::_internal_uuid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.uuid_.Get();
+}
+inline void ClientToken::_internal_set_uuid(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.uuid_.Set(value, GetArena());
+}
+inline std::string* ClientToken::_internal_mutable_uuid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.uuid_.Mutable( GetArena());
+}
+inline std::string* ClientToken::release_uuid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.ClientToken.uuid)
+  return _impl_.uuid_.Release();
+}
+inline void ClientToken::set_allocated_uuid(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.uuid_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.uuid_.IsDefault()) {
+    _impl_.uuid_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.ClientToken.uuid)
+}
+
+// -------------------------------------------------------------------
+
 // Settings
 
-// optional string language = 1;
+// optional .doctor_console.ClientToken token = 1;
+inline bool Settings::has_token() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.token_ != nullptr);
+  return value;
+}
+inline void Settings::clear_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.token_ != nullptr) _impl_.token_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const ::doctor_console::ClientToken& Settings::_internal_token() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::doctor_console::ClientToken* p = _impl_.token_;
+  return p != nullptr ? *p : reinterpret_cast<const ::doctor_console::ClientToken&>(::doctor_console::_ClientToken_default_instance_);
+}
+inline const ::doctor_console::ClientToken& Settings::token() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Settings.token)
+  return _internal_token();
+}
+inline void Settings::unsafe_arena_set_allocated_token(::doctor_console::ClientToken* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.token_);
+  }
+  _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:doctor_console.Settings.token)
+}
+inline ::doctor_console::ClientToken* Settings::release_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::doctor_console::ClientToken* released = _impl_.token_;
+  _impl_.token_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::doctor_console::ClientToken* Settings::unsafe_arena_release_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Settings.token)
+
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::doctor_console::ClientToken* temp = _impl_.token_;
+  _impl_.token_ = nullptr;
+  return temp;
+}
+inline ::doctor_console::ClientToken* Settings::_internal_mutable_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.token_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::doctor_console::ClientToken>(GetArena());
+    _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(p);
+  }
+  return _impl_.token_;
+}
+inline ::doctor_console::ClientToken* Settings::mutable_token() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  ::doctor_console::ClientToken* _msg = _internal_mutable_token();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Settings.token)
+  return _msg;
+}
+inline void Settings::set_allocated_token(::doctor_console::ClientToken* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.token_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+
+  _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(value);
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Settings.token)
+}
+
+// optional string language = 2;
 inline bool Settings::has_language() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -985,7 +1886,7 @@ inline void Settings::set_allocated_language(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:doctor_console.Settings.language)
 }
 
-// optional string theme = 2;
+// optional string theme = 3;
 inline bool Settings::has_theme() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -1054,15 +1955,15 @@ inline void Settings::set_allocated_theme(std::string* value) {
   // @@protoc_insertion_point(field_set_allocated:doctor_console.Settings.theme)
 }
 
-// optional bool eye_control_enabled = 3;
+// optional bool eye_control_enabled = 4;
 inline bool Settings::has_eye_control_enabled() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
 inline void Settings::clear_eye_control_enabled() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.eye_control_enabled_ = false;
-  _impl_._has_bits_[0] &= ~0x00000004u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
 }
 inline bool Settings::eye_control_enabled() const {
   // @@protoc_insertion_point(field_get:doctor_console.Settings.eye_control_enabled)
@@ -1070,7 +1971,7 @@ inline bool Settings::eye_control_enabled() const {
 }
 inline void Settings::set_eye_control_enabled(bool value) {
   _internal_set_eye_control_enabled(value);
-  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_._has_bits_[0] |= 0x00000008u;
   // @@protoc_insertion_point(field_set:doctor_console.Settings.eye_control_enabled)
 }
 inline bool Settings::_internal_eye_control_enabled() const {
@@ -1080,6 +1981,324 @@ inline bool Settings::_internal_eye_control_enabled() const {
 inline void Settings::_internal_set_eye_control_enabled(bool value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.eye_control_enabled_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Status
+
+// optional .doctor_console.ClientToken token = 1;
+inline bool Status::has_token() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.token_ != nullptr);
+  return value;
+}
+inline void Status::clear_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.token_ != nullptr) _impl_.token_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::doctor_console::ClientToken& Status::_internal_token() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::doctor_console::ClientToken* p = _impl_.token_;
+  return p != nullptr ? *p : reinterpret_cast<const ::doctor_console::ClientToken&>(::doctor_console::_ClientToken_default_instance_);
+}
+inline const ::doctor_console::ClientToken& Status::token() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Status.token)
+  return _internal_token();
+}
+inline void Status::unsafe_arena_set_allocated_token(::doctor_console::ClientToken* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.token_);
+  }
+  _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:doctor_console.Status.token)
+}
+inline ::doctor_console::ClientToken* Status::release_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::doctor_console::ClientToken* released = _impl_.token_;
+  _impl_.token_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::doctor_console::ClientToken* Status::unsafe_arena_release_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Status.token)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::doctor_console::ClientToken* temp = _impl_.token_;
+  _impl_.token_ = nullptr;
+  return temp;
+}
+inline ::doctor_console::ClientToken* Status::_internal_mutable_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.token_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::doctor_console::ClientToken>(GetArena());
+    _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(p);
+  }
+  return _impl_.token_;
+}
+inline ::doctor_console::ClientToken* Status::mutable_token() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::doctor_console::ClientToken* _msg = _internal_mutable_token();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Status.token)
+  return _msg;
+}
+inline void Status::set_allocated_token(::doctor_console::ClientToken* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.token_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(value);
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Status.token)
+}
+
+// .doctor_console.Status.State state = 2;
+inline void Status::clear_state() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.state_ = 0;
+}
+inline ::doctor_console::Status_State Status::state() const {
+  // @@protoc_insertion_point(field_get:doctor_console.Status.state)
+  return _internal_state();
+}
+inline void Status::set_state(::doctor_console::Status_State value) {
+  _internal_set_state(value);
+  // @@protoc_insertion_point(field_set:doctor_console.Status.state)
+}
+inline ::doctor_console::Status_State Status::_internal_state() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return static_cast<::doctor_console::Status_State>(_impl_.state_);
+}
+inline void Status::_internal_set_state(::doctor_console::Status_State value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.state_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Credentials
+
+// .doctor_console.ClientToken token = 1;
+inline bool Credentials::has_token() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.token_ != nullptr);
+  return value;
+}
+inline void Credentials::clear_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.token_ != nullptr) _impl_.token_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const ::doctor_console::ClientToken& Credentials::_internal_token() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::doctor_console::ClientToken* p = _impl_.token_;
+  return p != nullptr ? *p : reinterpret_cast<const ::doctor_console::ClientToken&>(::doctor_console::_ClientToken_default_instance_);
+}
+inline const ::doctor_console::ClientToken& Credentials::token() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Credentials.token)
+  return _internal_token();
+}
+inline void Credentials::unsafe_arena_set_allocated_token(::doctor_console::ClientToken* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.token_);
+  }
+  _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:doctor_console.Credentials.token)
+}
+inline ::doctor_console::ClientToken* Credentials::release_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::doctor_console::ClientToken* released = _impl_.token_;
+  _impl_.token_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::doctor_console::ClientToken* Credentials::unsafe_arena_release_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Credentials.token)
+
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::doctor_console::ClientToken* temp = _impl_.token_;
+  _impl_.token_ = nullptr;
+  return temp;
+}
+inline ::doctor_console::ClientToken* Credentials::_internal_mutable_token() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.token_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::doctor_console::ClientToken>(GetArena());
+    _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(p);
+  }
+  return _impl_.token_;
+}
+inline ::doctor_console::ClientToken* Credentials::mutable_token() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  ::doctor_console::ClientToken* _msg = _internal_mutable_token();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Credentials.token)
+  return _msg;
+}
+inline void Credentials::set_allocated_token(::doctor_console::ClientToken* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.token_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+
+  _impl_.token_ = reinterpret_cast<::doctor_console::ClientToken*>(value);
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Credentials.token)
+}
+
+// string username = 2;
+inline void Credentials::clear_username() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.username_.ClearToEmpty();
+}
+inline const std::string& Credentials::username() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Credentials.username)
+  return _internal_username();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Credentials::set_username(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.username_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:doctor_console.Credentials.username)
+}
+inline std::string* Credentials::mutable_username() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_username();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Credentials.username)
+  return _s;
+}
+inline const std::string& Credentials::_internal_username() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.username_.Get();
+}
+inline void Credentials::_internal_set_username(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.username_.Set(value, GetArena());
+}
+inline std::string* Credentials::_internal_mutable_username() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.username_.Mutable( GetArena());
+}
+inline std::string* Credentials::release_username() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Credentials.username)
+  return _impl_.username_.Release();
+}
+inline void Credentials::set_allocated_username(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.username_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.username_.IsDefault()) {
+    _impl_.username_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Credentials.username)
+}
+
+// string password = 3;
+inline void Credentials::clear_password() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.password_.ClearToEmpty();
+}
+inline const std::string& Credentials::password() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Credentials.password)
+  return _internal_password();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void Credentials::set_password(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.password_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:doctor_console.Credentials.password)
+}
+inline std::string* Credentials::mutable_password() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_password();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Credentials.password)
+  return _s;
+}
+inline const std::string& Credentials::_internal_password() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.password_.Get();
+}
+inline void Credentials::_internal_set_password(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.password_.Set(value, GetArena());
+}
+inline std::string* Credentials::_internal_mutable_password() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.password_.Mutable( GetArena());
+}
+inline std::string* Credentials::release_password() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Credentials.password)
+  return _impl_.password_.Release();
+}
+inline void Credentials::set_allocated_password(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.password_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.password_.IsDefault()) {
+    _impl_.password_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Credentials.password)
 }
 
 // -------------------------------------------------------------------
@@ -1206,102 +2425,363 @@ inline void User::set_allocated_name(std::string* value) {
 
 // -------------------------------------------------------------------
 
-// Credentials
+// Changes
 
-// string username = 1;
-inline void Credentials::clear_username() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.username_.ClearToEmpty();
+// optional .doctor_console.User user = 1;
+inline bool Changes::has_user() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.user_ != nullptr);
+  return value;
 }
-inline const std::string& Credentials::username() const
+inline void Changes::clear_user() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.user_ != nullptr) _impl_.user_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline const ::doctor_console::User& Changes::_internal_user() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::doctor_console::User* p = _impl_.user_;
+  return p != nullptr ? *p : reinterpret_cast<const ::doctor_console::User&>(::doctor_console::_User_default_instance_);
+}
+inline const ::doctor_console::User& Changes::user() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Changes.user)
+  return _internal_user();
+}
+inline void Changes::unsafe_arena_set_allocated_user(::doctor_console::User* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.user_);
+  }
+  _impl_.user_ = reinterpret_cast<::doctor_console::User*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:doctor_console.Changes.user)
+}
+inline ::doctor_console::User* Changes::release_user() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::doctor_console::User* released = _impl_.user_;
+  _impl_.user_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::doctor_console::User* Changes::unsafe_arena_release_user() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Changes.user)
+
+  _impl_._has_bits_[0] &= ~0x00000002u;
+  ::doctor_console::User* temp = _impl_.user_;
+  _impl_.user_ = nullptr;
+  return temp;
+}
+inline ::doctor_console::User* Changes::_internal_mutable_user() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.user_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::doctor_console::User>(GetArena());
+    _impl_.user_ = reinterpret_cast<::doctor_console::User*>(p);
+  }
+  return _impl_.user_;
+}
+inline ::doctor_console::User* Changes::mutable_user() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  ::doctor_console::User* _msg = _internal_mutable_user();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Changes.user)
+  return _msg;
+}
+inline void Changes::set_allocated_user(::doctor_console::User* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.user_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000002u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000002u;
+  }
+
+  _impl_.user_ = reinterpret_cast<::doctor_console::User*>(value);
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Changes.user)
+}
+
+// optional .doctor_console.Settings settings = 2;
+inline bool Changes::has_settings() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.settings_ != nullptr);
+  return value;
+}
+inline void Changes::clear_settings() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.settings_ != nullptr) _impl_.settings_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline const ::doctor_console::Settings& Changes::_internal_settings() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::doctor_console::Settings* p = _impl_.settings_;
+  return p != nullptr ? *p : reinterpret_cast<const ::doctor_console::Settings&>(::doctor_console::_Settings_default_instance_);
+}
+inline const ::doctor_console::Settings& Changes::settings() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Changes.settings)
+  return _internal_settings();
+}
+inline void Changes::unsafe_arena_set_allocated_settings(::doctor_console::Settings* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.settings_);
+  }
+  _impl_.settings_ = reinterpret_cast<::doctor_console::Settings*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:doctor_console.Changes.settings)
+}
+inline ::doctor_console::Settings* Changes::release_settings() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::doctor_console::Settings* released = _impl_.settings_;
+  _impl_.settings_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::doctor_console::Settings* Changes::unsafe_arena_release_settings() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Changes.settings)
+
+  _impl_._has_bits_[0] &= ~0x00000004u;
+  ::doctor_console::Settings* temp = _impl_.settings_;
+  _impl_.settings_ = nullptr;
+  return temp;
+}
+inline ::doctor_console::Settings* Changes::_internal_mutable_settings() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.settings_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::doctor_console::Settings>(GetArena());
+    _impl_.settings_ = reinterpret_cast<::doctor_console::Settings*>(p);
+  }
+  return _impl_.settings_;
+}
+inline ::doctor_console::Settings* Changes::mutable_settings() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  ::doctor_console::Settings* _msg = _internal_mutable_settings();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Changes.settings)
+  return _msg;
+}
+inline void Changes::set_allocated_settings(::doctor_console::Settings* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.settings_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000004u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000004u;
+  }
+
+  _impl_.settings_ = reinterpret_cast<::doctor_console::Settings*>(value);
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Changes.settings)
+}
+
+// optional .doctor_console.Status status = 3;
+inline bool Changes::has_status() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.status_ != nullptr);
+  return value;
+}
+inline void Changes::clear_status() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.status_ != nullptr) _impl_.status_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline const ::doctor_console::Status& Changes::_internal_status() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  const ::doctor_console::Status* p = _impl_.status_;
+  return p != nullptr ? *p : reinterpret_cast<const ::doctor_console::Status&>(::doctor_console::_Status_default_instance_);
+}
+inline const ::doctor_console::Status& Changes::status() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:doctor_console.Changes.status)
+  return _internal_status();
+}
+inline void Changes::unsafe_arena_set_allocated_status(::doctor_console::Status* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::google::protobuf::MessageLite*>(_impl_.status_);
+  }
+  _impl_.status_ = reinterpret_cast<::doctor_console::Status*>(value);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:doctor_console.Changes.status)
+}
+inline ::doctor_console::Status* Changes::release_status() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  ::doctor_console::Status* released = _impl_.status_;
+  _impl_.status_ = nullptr;
+  if (::google::protobuf::internal::DebugHardenForceCopyInRelease()) {
+    auto* old = reinterpret_cast<::google::protobuf::MessageLite*>(released);
+    released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    if (GetArena() == nullptr) {
+      delete old;
+    }
+  } else {
+    if (GetArena() != nullptr) {
+      released = ::google::protobuf::internal::DuplicateIfNonNull(released);
+    }
+  }
+  return released;
+}
+inline ::doctor_console::Status* Changes::unsafe_arena_release_status() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:doctor_console.Changes.status)
+
+  _impl_._has_bits_[0] &= ~0x00000008u;
+  ::doctor_console::Status* temp = _impl_.status_;
+  _impl_.status_ = nullptr;
+  return temp;
+}
+inline ::doctor_console::Status* Changes::_internal_mutable_status() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (_impl_.status_ == nullptr) {
+    auto* p = ::google::protobuf::Message::DefaultConstruct<::doctor_console::Status>(GetArena());
+    _impl_.status_ = reinterpret_cast<::doctor_console::Status*>(p);
+  }
+  return _impl_.status_;
+}
+inline ::doctor_console::Status* Changes::mutable_status() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  ::doctor_console::Status* _msg = _internal_mutable_status();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Changes.status)
+  return _msg;
+}
+inline void Changes::set_allocated_status(::doctor_console::Status* value) {
+  ::google::protobuf::Arena* message_arena = GetArena();
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (message_arena == nullptr) {
+    delete (_impl_.status_);
+  }
+
+  if (value != nullptr) {
+    ::google::protobuf::Arena* submessage_arena = (value)->GetArena();
+    if (message_arena != submessage_arena) {
+      value = ::google::protobuf::internal::GetOwnedMessage(message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000008u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000008u;
+  }
+
+  _impl_.status_ = reinterpret_cast<::doctor_console::Status*>(value);
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Changes.status)
+}
+
+// optional string message = 4;
+inline bool Changes::has_message() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline void Changes::clear_message() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.message_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& Changes::message() const
     ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:doctor_console.Credentials.username)
-  return _internal_username();
+  // @@protoc_insertion_point(field_get:doctor_console.Changes.message)
+  return _internal_message();
 }
 template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Credentials::set_username(Arg_&& arg,
+inline PROTOBUF_ALWAYS_INLINE void Changes::set_message(Arg_&& arg,
                                                      Args_... args) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.username_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:doctor_console.Credentials.username)
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.message_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:doctor_console.Changes.message)
 }
-inline std::string* Credentials::mutable_username() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_username();
-  // @@protoc_insertion_point(field_mutable:doctor_console.Credentials.username)
+inline std::string* Changes::mutable_message() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_message();
+  // @@protoc_insertion_point(field_mutable:doctor_console.Changes.message)
   return _s;
 }
-inline const std::string& Credentials::_internal_username() const {
+inline const std::string& Changes::_internal_message() const {
   ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.username_.Get();
+  return _impl_.message_.Get();
 }
-inline void Credentials::_internal_set_username(const std::string& value) {
+inline void Changes::_internal_set_message(const std::string& value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.username_.Set(value, GetArena());
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.message_.Set(value, GetArena());
 }
-inline std::string* Credentials::_internal_mutable_username() {
+inline std::string* Changes::_internal_mutable_message() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.username_.Mutable( GetArena());
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.message_.Mutable( GetArena());
 }
-inline std::string* Credentials::release_username() {
+inline std::string* Changes::release_message() {
   ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:doctor_console.Credentials.username)
-  return _impl_.username_.Release();
-}
-inline void Credentials::set_allocated_username(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.username_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.username_.IsDefault()) {
-    _impl_.username_.Set("", GetArena());
+  // @@protoc_insertion_point(field_release:doctor_console.Changes.message)
+  if ((_impl_._has_bits_[0] & 0x00000001u) == 0) {
+    return nullptr;
   }
-  // @@protoc_insertion_point(field_set_allocated:doctor_console.Credentials.username)
-}
-
-// string password = 2;
-inline void Credentials::clear_password() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.password_.ClearToEmpty();
-}
-inline const std::string& Credentials::password() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:doctor_console.Credentials.password)
-  return _internal_password();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void Credentials::set_password(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.password_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:doctor_console.Credentials.password)
-}
-inline std::string* Credentials::mutable_password() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_password();
-  // @@protoc_insertion_point(field_mutable:doctor_console.Credentials.password)
-  return _s;
-}
-inline const std::string& Credentials::_internal_password() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.password_.Get();
-}
-inline void Credentials::_internal_set_password(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.password_.Set(value, GetArena());
-}
-inline std::string* Credentials::_internal_mutable_password() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.password_.Mutable( GetArena());
-}
-inline std::string* Credentials::release_password() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:doctor_console.Credentials.password)
-  return _impl_.password_.Release();
-}
-inline void Credentials::set_allocated_password(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.password_.SetAllocated(value, GetArena());
-  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.password_.IsDefault()) {
-    _impl_.password_.Set("", GetArena());
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* released = _impl_.message_.Release();
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString()) {
+    _impl_.message_.Set("", GetArena());
   }
-  // @@protoc_insertion_point(field_set_allocated:doctor_console.Credentials.password)
+  return released;
+}
+inline void Changes::set_allocated_message(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (value != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.message_.SetAllocated(value, GetArena());
+  if (::google::protobuf::internal::DebugHardenForceCopyDefaultString() && _impl_.message_.IsDefault()) {
+    _impl_.message_.Set("", GetArena());
+  }
+  // @@protoc_insertion_point(field_set_allocated:doctor_console.Changes.message)
 }
 
 #ifdef __GNUC__
@@ -1311,6 +2791,19 @@ inline void Credentials::set_allocated_password(std::string* value) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace doctor_console
 
+
+namespace google {
+namespace protobuf {
+
+template <>
+struct is_proto_enum<::doctor_console::Status_State> : std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor<::doctor_console::Status_State>() {
+  return ::doctor_console::Status_State_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

@@ -13,7 +13,7 @@ using grpc::ServerBuilder;
 
 void ExampleServer::run()
 {
-    std::string serverUri("127.0.0.1:50051");
+    std::string serverUri("0.0.0.0:50051");
     DoctorConsoleBackend service;
 
     ServerBuilder builder;
