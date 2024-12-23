@@ -42,7 +42,6 @@ Status DoctorConsoleBackend::setSettings(ServerContext *, const dc::Settings *re
         return Status(StatusCode::INVALID_ARGUMENT, "Set settings requires ClientToken");
     if (m_clientIds.count(request->token().uuid()) < 1)
         return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
-    std::cout << request->DebugString() << std::endl;
     std::cout << "set Settings from: " << request->token().uuid() << std::endl;
     std::unique_lock<std::shared_mutex> lock(m_settingsMutex);
     if (request->has_language())
@@ -52,15 +51,9 @@ Status DoctorConsoleBackend::setSettings(ServerContext *, const dc::Settings *re
     if (request->has_eye_control_enabled())
         m_settings.set_eye_control_enabled(request->eye_control_enabled());
 
-    for (auto [uuid, writer] : m_subscriptions)
-    {
-        if (uuid == request->token().uuid())
-            continue;
-        dc::Changes change;
-        dc::Settings *settings = new dc::Settings(*request);
-        change.set_allocated_settings(settings);
-        writer->Write(change);
-    }
+    dc::Changes changes;
+    changes.set_allocated_settings(new dc::Settings(*request));
+    pushChanges(request->token().uuid(), changes);
     return Status();
 }
 
@@ -83,13 +76,16 @@ Status DoctorConsoleBackend::getStatus(ServerContext *, const dc::Empty *request
 Status DoctorConsoleBackend::setStatus(ServerContext *, const dc::Status *request, dc::Empty *response)
 {
     if (!request->has_token())
-        return Status(StatusCode::INVALID_ARGUMENT, "Set settings requires ClientToken");
+        return Status(StatusCode::INVALID_ARGUMENT, "Set status requires ClientToken");
     if (m_clientIds.count(request->token().uuid()) < 1)
         return Status(StatusCode::PERMISSION_DENIED, "Invalid ClientToken, use the token obtained from registerMe()");
 
     std::cout << "State set from: " << request->token().uuid() << std::endl;
     m_status.set_state(request->state());
-    // TODO: update changes to other clients
+
+    dc::Changes changes;
+    changes.set_allocated_status(new dc::Status(*request));
+    pushChanges(request->token().uuid(), changes);
     return Status();
 }
 
@@ -108,7 +104,10 @@ Status DoctorConsoleBackend::login(ServerContext *, const dc::Credentials *reque
         *response = m_user;
         std::cout << "Admin logged in!" << std::endl;
     }
-    // TODO: update changes to other clients
+
+    dc::Changes changes;
+    changes.set_allocated_user(new dc::User(*response));
+    pushChanges(request->token().uuid(), changes);
     return Status();
 }
 
@@ -123,7 +122,10 @@ Status DoctorConsoleBackend::logout(ServerContext *, const dc::ClientToken *requ
     m_user.set_id_string("-1");
     m_user.set_name("");
     *response = m_user;
-    // TODO: update changes to other clients
+
+    dc::Changes changes;
+    changes.set_allocated_user(new dc::User(*response));
+    pushChanges(request->uuid(), changes);
     return Status();
 }
 
@@ -145,4 +147,14 @@ Status DoctorConsoleBackend::subscribe(ServerContext *context, const dc::ClientT
 
     m_subscriptions.erase(request->uuid());
     return Status();
+}
+
+void DoctorConsoleBackend::pushChanges(const std::string &uuid, const dc::Changes &changes)
+{
+    for (auto [id, writer] : m_subscriptions)
+    {
+        if (id == uuid)
+            continue;
+        writer->Write(changes);
+    }
 }

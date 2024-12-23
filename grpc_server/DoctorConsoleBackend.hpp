@@ -22,6 +22,8 @@ private:
     grpc::Status logout(grpc::ServerContext *, const dc::ClientToken *request, dc::User *response) override;
     grpc::Status subscribe(grpc::ServerContext *, const dc::ClientToken *request, grpc::ServerWriter<dc::Changes> *writer) override;
 
+    void pushChanges(const std::string &uuid, const dc::Changes &changes);
+
     dc::Settings m_settings;
     dc::User m_user;
     dc::Status m_status;

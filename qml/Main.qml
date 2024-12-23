@@ -24,6 +24,7 @@ ApplicationWindow {
     property user _user
     property credentials _credentials
     property changes _changes
+    property status _status
 
     property var clientTokenResponse: function (value) {
         console.timeEnd("getCT")
@@ -47,9 +48,26 @@ ApplicationWindow {
         name.text = _user.name
     }
 
+    property var statusResponse: function (value) {
+        console.timeEnd("getSt")
+        _status = value
+        statusBox.currentIndex = statusBox.indexOfValue(_status.state)
+    }
+
     property var changeResponse: function (value) {
         _changes = value
-        console.log(_changes.settings)
+        console.log("has user:", _changes.hasUser)
+        console.log("has settings:", _changes.hasSettings)
+        console.log("has status:", _changes.hasStatus)
+        console.log("has message:", _changes.hasMessage)
+        if (_changes.hasUser)
+            userResponse(_changes.user)
+        if (_changes.hasSettings)
+            settingResponse(_changes.settings)
+        if (_changes.hasStatus)
+            statusResponse(_changes.status)
+        if (_changes.hasMessage)
+            console.log(_changes.message)
     }
 
     property var finishResponse: function (value) {
@@ -150,14 +168,18 @@ ApplicationWindow {
             onClicked: root.logout()
         }
 
-        Button{
-            text: qsTr("Start Eye Calibration")
-            onClicked: root.startEyeCalibration()
-        }
-
-        Button{
-            text: qsTr("Stop Eye Calibration")
-            onClicked: root.stopEyeCalibration()
+        ComboBox {
+            id: statusBox
+            textRole: "text"
+            valueRole: "value"
+            model: [
+                { value: Status.NORMAL, text: "Normal" },
+                { value: Status.EYE_CALIBRATION, text: "Eye Calibration" },
+            ]
+            onActivated: {
+                _status.state = valueAt(currentIndex)
+                root.setStatus()
+            }
         }
 
         Button{
@@ -199,12 +221,13 @@ ApplicationWindow {
         grpcClient.logout(_clientToken, userResponse, errorCallback)
     }
 
-    function startEyeCalibration() {
-        grpcClient.startEyeCalibration(_clientToken, _empty, errorCallback)
+    function setStatus() {
+        _status.token = _clientToken
+        grpcClient.setStatus(_status, _empty, errorCallback)
     }
 
-    function stopEyeCalibration() {
-        grpcClient.stopEyeCalibration(_clientToken, _empty, errorCallback)
+    function getStatus() {
+        grpcClient.getStatus(_empty, statusResponse, errorCallback)
     }
 
     function subscribe() {
